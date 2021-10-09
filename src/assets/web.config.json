@@ -1,0 +1,4 @@
+{
+    "SWAGGER_PATH": "src/swagger/providers",
+    "API_PATH": "swagger/v1/swagger.json"
+}
