@@ -28,7 +28,6 @@ export class InvoiceListService implements Resolve<any> {
    */
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
     return new Promise<void>((resolve, reject) => {
-      debugger;
       Promise.all([this.getDataTableRows()]).then(() => {
         resolve();
       }, reject);
@@ -40,7 +39,6 @@ export class InvoiceListService implements Resolve<any> {
    */
   getDataTableRows(): Promise<any[]> {
     return new Promise((resolve, reject) => {
-      debugger;
       this._httpClient.get('api/invoice-data').subscribe((response: any) => {
         this.rows = response;
         debugger;
