@@ -326,7 +326,7 @@ export class RequestBuilder {
 
     // Path parameters
     let path = this.operationPath;
-    for (const pathParam of this._path.values()) {
+    for (const pathParam of Array.from(this._path.values())) {
       path = pathParam.append(path);
     }
     const url = this.rootUrl + path;
@@ -335,7 +335,7 @@ export class RequestBuilder {
     let httpParams = new HttpParams({
       encoder: ParameterCodecInstance
     });
-    for (const queryParam of this._query.values()) {
+    for (const queryParam of Array.from(this._query.values())) {
       httpParams = queryParam.append(httpParams);
     }
 
@@ -344,7 +344,7 @@ export class RequestBuilder {
     if (options.accept) {
       httpHeaders = httpHeaders.append('Accept', options.accept);
     }
-    for (const headerParam of this._header.values()) {
+    for (const headerParam of Array.from(this._header.values())) {
       httpHeaders = headerParam.append(httpHeaders);
     }
 

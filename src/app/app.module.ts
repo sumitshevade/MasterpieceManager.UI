@@ -31,7 +31,7 @@ import { AnimatedCustomContextMenuComponent } from './main/extensions/context-me
 import { BasicCustomContextMenuComponent } from './main/extensions/context-menu/custom-context-menu/basic-custom-context-menu/basic-custom-context-menu.component';
 import { SubMenuCustomContextMenuComponent } from './main/extensions/context-menu/custom-context-menu/sub-menu-custom-context-menu/sub-menu-custom-context-menu.component';
 import { ContactsModule } from './mpm/contacts/contacts.module';
-import { ApiModule } from './../swagger/providers/api.module';
+import { ApiModule } from 'swagger/providers/api.module';
 
 const appRoutes: Routes = [
   {
@@ -124,7 +124,7 @@ const appRoutes: Routes = [
     LayoutModule,
     ContentHeaderModule,
     ContactsModule,
-    ApiModule
+    ApiModule.forRoot({})
   ],
 
   providers: [
