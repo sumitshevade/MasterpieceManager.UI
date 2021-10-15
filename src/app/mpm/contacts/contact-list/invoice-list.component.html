@@ -8,8 +8,8 @@
           <div class="col-md-6 col-12">
             <div class="d-flex justify-content-between align-items-center m-1">
               <div class="d-flex align-items-center">
-                <label class="d-flex align-items-center"
-                  >Show
+                <label class="d-flex align-items-center col-4">
+                  <span class="mr-1">Show</span>
                   <select
                     class="form-control mx-25"
                     [(ngModel)]="selectedOption"
@@ -20,17 +20,77 @@
                     <option value="100">100</option>
                   </select>
                 </label>
-                <button
-                  class="btn btn-primary ml-2"
-                  routerLink="/apps/invoice/add"
-                  rippleEffect
+                <ngb-pagination
+                  [collectionSize]="70"
+                  [(page)]="pageBasic"
+                  aria-label="Default pagination"
+                  class="col-6 mt-1"
                 >
-                  Add Record
-                </button>
+                  <ng-template ngbPaginationPrevious
+                    ><span
+                      [data-feather]="'chevron-left'"
+                      [size]="18"
+                      [class]="'font-weight-bolder'"
+                    ></span>
+                  </ng-template>
+                  <ng-template ngbPaginationNext
+                    ><span
+                      [data-feather]="'chevron-right'"
+                      [size]="18"
+                      [class]="'font-weight-bolder'"
+                    ></span
+                  ></ng-template>
+                </ngb-pagination>
               </div>
             </div>
           </div>
-          <!--  -->
+          <div
+            class="
+              col-md-6
+              d-flex
+              justify-content-start justify-content-md-end
+              align-items-center
+            "
+          >
+            <div class="col-3">
+              <a href="javascript:void(0)" class="text-blue ml-2">
+                <i data-feather="download" class="font-medium-5"></i>
+                <span class="linktext">Import</span>
+              </a>
+            </div>
+            <div class="col-3">
+              <a href="javascript:void(0)" class="text-blue ml-2">
+                <i data-feather="upload" class="font-medium-5"></i>
+                <span class="linktext">Export</span>
+              </a>
+            </div>
+            <div class="col-4">
+              <button
+                class="btn btn-primary"
+                routerLink="/apps/invoice/add"
+                rippleEffect
+              >
+                New Contact
+              </button>
+            </div>
+          </div>
+          <!-- <div class="col-md-12 col-lg-4 col-12 d-flex justify-content-start justify-content-md-end align-items-center offset-lg-2"
+          >
+            <div class="col-12 row pr-1 pb-1 pb-md-0 align-items-center w-100">
+              <div class="col-4 col-md-4 pr-0">
+                <a href="javascript:void(0)" class="text-blue">
+                  <i data-feather="download" class="font-medium-5"></i>Import
+                  </a>
+              </div>
+              <div class="col-4 col-md-4 mt-2 ml-md-0 mt-md-0">
+                <a href="javascript:void(0)" class="text-blue">
+                  <i data-feather="upload" class="font-medium-5"></i>Export</a>
+              </div>
+              <div class="col-4 col-md-4 mt-2 ml-md-0 mt-md-0">
+                <button class="btn btn-primary" routerLink="/apps/invoice/add" rippleEffect>New Contact</button>
+              </div>
+            </div>
+          </div> -->
         </div>
         <!--/ Invoice List Header -->
 
@@ -42,68 +102,63 @@
           [limit]="selectedOption"
           [columnMode]="ColumnMode.force"
           [headerHeight]="50"
-          [footerHeight]="50"
+          [footerHeight]="0"
           [scrollbarH]="true"
         >
-          <ngx-datatable-column name="#" prop="id" [width]="50">
-            <ng-template let-id="value" ngx-datatable-cell-template>
-              <a
-                routerLink="/apps/invoice/preview/{{ id }}"
-                class="font-weight-bold"
-                >#{{ id }}</a
-              >
-            </ng-template>
-          </ngx-datatable-column>
-          <ngx-datatable-column name="status" prop="invoiceStatus" [width]="50">
+          <ngx-datatable-column
+            [width]="50"
+            [sortable]="false"
+            [canAutoResize]="false"
+            [draggable]="false"
+            [resizeable]="false"
+          >
             <ng-template
-              let-row="row"
-              let-invoiceStatus="value"
-              ngx-datatable-cell-template
+              ngx-datatable-header-template
+              let-value="value"
+              let-allRowsSelected="allRowsSelected"
+              let-selectFn="selectFn"
             >
-              <!-- <a class="font-weight-bold">{{ invoiceStatus }}</a> -->
-              <div
-                class="avatar avatar-status"
-                [ngClass]="{
-                  'bg-light-secondary': row.invoiceStatus == 'Sent',
-                  'bg-light-success': row.invoiceStatus == 'Paid',
-                  'bg-light-primary': row.invoiceStatus == 'Draft',
-                  'bg-light-warning': row.invoiceStatus == 'Partial Payment',
-                  'bg-light-info': row.invoiceStatus == 'Downloaded',
-                  'bg-light-danger': row.invoiceStatus == 'Past Due'
-                }"
-              >
-                <ng-template #tipContent
-                  ><span
-                    >{{ row.invoiceStatus }}<br />
-                    <span class="font-weight-bold">Balance:</span>
-                    {{ row.balance }}<br />
-                    <span class="font-weight-bold">Due Date:</span>
-                    {{ row.dueDate }}</span
-                  ></ng-template
-                >
-                <span
-                  class="avatar-content"
-                  placement="top"
-                  [ngbTooltip]="tipContent"
-                  container="body"
-                >
-                  <i
-                    class="feather avatar-icon font-medium-1"
-                    [ngClass]="{
-                      'icon-send': row.invoiceStatus == 'Sent',
-                      'icon-check-circle': row.invoiceStatus == 'Paid',
-                      'icon-save': row.invoiceStatus == 'Draft',
-                      'icon-pie-chart': row.invoiceStatus == 'Partial Payment',
-                      'icon-arrow-down-circle':
-                        row.invoiceStatus == 'Downloaded',
-                      'icon-info': row.invoiceStatus == 'Past Due'
-                    }"
-                  ></i
-                ></span>
+              <div class="custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  [checked]="allRowsSelected"
+                  (change)="selectFn(!allRowsSelected)"
+                  id="headerChkbxRef"
+                />
+                <label
+                  class="custom-control-label"
+                  for="headerChkbxRef"
+                ></label>
+              </div>
+            </ng-template>
+            <ng-template
+              ngx-datatable-cell-template
+              let-rowIndex="rowIndex"
+              let-value="value"
+              let-isSelected="isSelected"
+              let-onCheckboxChangeFn="onCheckboxChangeFn"
+            >
+              <div class="custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  [checked]="isSelected"
+                  (change)="onCheckboxChangeFn($event)"
+                  id="rowChkbxRef{{ rowIndex }}"
+                />
+                <label
+                  class="custom-control-label"
+                  for="rowChkbxRef{{ rowIndex }}"
+                ></label>
               </div>
             </ng-template>
           </ngx-datatable-column>
-          <ngx-datatable-column name="client" prop="client.name" [width]="250">
+          <ngx-datatable-column
+            name="First Name"
+            prop="client.name"
+            [width]="250"
+          >
             <ng-template
               let-row="row"
               let-name="value"
@@ -136,91 +191,62 @@
                   </div>
                 </ng-template>
                 <div class="cell-line-height">
-                  <span
-                    class="font-weight-bold d-block text-nowrap font-medium-1"
-                    >{{ name }}</span
-                  >
-                  <span class="text-muted font-small-2">
-                    @{{ row.client.companyEmail }}</span
-                  >
+                  <span class="d-block text-nowrap text-blue">{{ name }}</span>
                 </div>
               </div>
             </ng-template>
           </ngx-datatable-column>
-          <ngx-datatable-column name="Total" prop="total" [width]="50">
-            <ng-template let-total="value" ngx-datatable-cell-template>
-              <div>
-                $
-                {{ total }}
-              </div>
-            </ng-template>
-          </ngx-datatable-column>
-
           <ngx-datatable-column
-            name="Issued Date"
-            prop="issuedDate"
-            [width]="100"
+            name="Last Name"
+            prop="client.name"
+            [width]="250"
           >
-          </ngx-datatable-column>
-          <ngx-datatable-column name="Balance" prop="balance" [width]="40">
-            <ng-template let-balance="value" ngx-datatable-cell-template>
-              <div
-                class=""
-                [ngClass]="
-                  balance == 0 ? 'badge badge-pill badge-light-success' : ' '
-                "
-              >
-                {{ balance == 0 ? "paid" : balance }}
+            <ng-template
+              let-row="row"
+              let-name="value"
+              ngx-datatable-cell-template
+            >
+              <div class="d-flex align-items-center">
+                <div class="cell-line-height">
+                  <span class="d-block text-nowrap text-blue">{{ name }}</span>
+                </div>
               </div>
             </ng-template>
           </ngx-datatable-column>
-          <ngx-datatable-column name="Actions" [width]="40" [sortable]="false">
-            <ng-template ngx-datatable-cell-template let-row="row">
-              <div class="d-flex align-items-center col-actions">
-                <a
-                  class="mr-1"
-                  href="javascript:void(0);"
-                  container="body"
-                  placement="top"
-                  ngbTooltip="Send Mail"
-                  ><i size="18" data-feather="send"></i
-                ></a>
-                <a
-                  class="mr-1"
-                  routerLink="/apps/invoice/preview/{{ row.id }}"
-                  container="body"
-                  placement="top"
-                  ngbTooltip="Preview Invoice"
-                  ><i size="18" data-feather="eye"></i
-                ></a>
-                <div ngbDropdown container="body">
-                  <button
-                    ngbDropdownToggle
-                    type="button"
-                    class="btn icon-btn btn-sm hide-arrow px-0"
-                    rippleEffect
-                  >
-                    <i
-                      data-feather="more-vertical"
-                      size="18"
-                      class="cursor-pointer"
-                    ></i>
-                  </button>
-                  <div ngbDropdownMenu>
-                    <a href="javascript:void(0)" ngbDropdownItem
-                      ><i data-feather="download" class="mr-1"></i>Download</a
-                    ><a
-                      routerLink="/apps/invoice/edit/{{ row.id }}"
-                      ngbDropdownItem
-                      ><i data-feather="edit" class="mr-1"></i>Edit</a
-                    ><a href="javascript:void(0)" ngbDropdownItem
-                      ><i data-feather="trash" class="mr-1"></i>Delete</a
-                    ><a href="javascript:void(0)" ngbDropdownItem
-                      ><i data-feather="copy" class="mr-1"></i>Duplicate</a
-                    >
-                  </div>
+          <ngx-datatable-column
+            name="Scancode"
+            prop="client.name"
+            [width]="250"
+          >
+            <ng-template
+              let-row="row"
+              let-name="value"
+              ngx-datatable-cell-template
+            >
+              <div class="d-flex align-items-center">
+                <div class="cell-line-height">
+                  <span> @{{ row.client.companyEmail }}</span>
                 </div>
               </div>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Phone" prop="issuedDate" [width]="100">
+            <ng-template ngx-datatable-cell-template>
+              <div class="badge badge-light-secondary">(925) 961-1235</div>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Company" prop="balance" [width]="40">
+            <ng-template let-balance="value" ngx-datatable-cell-template>
+              <div class="">Test</div>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column
+            name="Job Title"
+            [width]="40"
+            [sortable]="false"
+          >
+            <ng-template ngx-datatable-cell-template let-row="row">
+              <div class="d-flex align-items-center col-actions">Test</div>
             </ng-template>
           </ngx-datatable-column>
         </ngx-datatable>

@@ -31,6 +31,7 @@ export class InvoiceListComponent implements OnInit, OnDestroy {
 
   public selectedStatus = [];
   public searchValue = '';
+  public pageBasic = 1;
 
   // decorator
   @ViewChild(DatatableComponent) table: DatatableComponent;
