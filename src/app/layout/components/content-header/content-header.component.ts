@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,EventEmitter, Output } from '@angular/core';
 
 // ContentHeader component interface
 export interface ContentHeader {
@@ -10,6 +10,7 @@ export interface ContentHeader {
       name?: string;
       isLink?: boolean;
       link?: string;
+      linkicon?: string;
     }>;
   };
 }
@@ -19,10 +20,18 @@ export interface ContentHeader {
   templateUrl: './content-header.component.html'
 })
 export class ContentHeaderComponent implements OnInit {
+  public isChecked = true;
   // input variable
   @Input() contentHeader: ContentHeader;
+  @Output() kpiChecked: EventEmitter<any>;
 
-  constructor() {}
+  constructor() {
+    this.kpiChecked = new EventEmitter<any>();
+  }
 
   ngOnInit() {}
+
+  checkValue(event){
+    this.kpiChecked.emit(this.isChecked);
+  }
 }

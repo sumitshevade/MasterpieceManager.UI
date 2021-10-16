@@ -43,3 +43,11 @@ app-navbar-bookmark {
     }
   }
 }
+
+$btn-color: #0056CA;
+$txt-color: #0056CA;
+$color: #0056CA;
+
+.btn-outline-primary{
+    color: $btn-color !important;
+}

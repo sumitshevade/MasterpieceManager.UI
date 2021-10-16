@@ -17,8 +17,11 @@
       'mr-1': breadcrumb.alignment == 'right'
     }"
   >
+  
     <li class="breadcrumb-item" *ngFor="let link of breadcrumb.links">
-      <a *ngIf="link.isLink" routerLink="{{ link.link }}">{{ link.name }}</a>
+      <a *ngIf="link.isLink" routerLink="{{ link.link }}" style="color:#0056CA ;">
+        <i [data-feather]="link.linkicon" class="font-medium-5" style="color: #0056CA;"></i>
+      </a>
       <span *ngIf="!link.isLink">{{ link.name }}</span>
     </li>
   </ol>

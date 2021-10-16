@@ -8,6 +8,7 @@ export interface Breadcrumb {
     name: string;
     isLink: boolean;
     link?: string;
+    linkicon?: string;
   }>;
 }
 
