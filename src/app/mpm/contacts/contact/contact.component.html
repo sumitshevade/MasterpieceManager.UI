@@ -1,115 +1,14 @@
-<!-- <app-content-header [contentHeader]="contentHeader"></app-content-header> -->
-<app-content-header
-  (kpiChecked)="receiveKpiValue($event)"
-  [contentHeader]="contentHeader"
-></app-content-header>
-<div class="content-wrapper container-xxl p-0">
-  <div class="content-body">
-    <!-- Stats Horizontal Card -->
-    <div *ngIf="kpichecked" class="row">
-      <div class="col-lg-3 col-sm-6 col-12">
-        <div class="card">
-          <div class="card-header">
-            <div>
-              <div class="d-flex align-items-center">
-                <div class="d-flex align-items-center">
-                  <h2 class="font-weight-bolder mb-0">3577</h2>
-                </div>
-                <div
-                  class="
-                    badge badge-pill badge-glow badge-info
-                    d-flex
-                    align-items-center
-                    ml-1
-                  "
-                >
-                  6 New
-                </div>
-              </div>
-              <p class="card-text">Total Contacts</p>
-            </div>
-            <div class="avatar bg-light-primary p-50 m-0">
-              <div class="avatar-content">
-                <i data-feather="users" class="font-medium-5"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6 col-12">
-        <div class="card">
-          <div class="card-header">
-            <div>
-              <h2 class="font-weight-bolder mb-0">1244</h2>
-              <p class="card-text">Total Artists</p>
-            </div>
-            <div class="avatar bg-light-success p-50 m-0">
-              <div class="avatar-content">
-                <img
-                  src="assets/images/icon/paint.svg"
-                  height="100%"
-                  width="100%"
-                  class="round"
-                />
-                <!-- <i data-feather="pen-tool" class="font-medium-5"></i> -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6 col-12">
-        <div class="card">
-          <div class="card-header">
-            <div>
-              <div class="d-flex align-items-center">
-                <div class="d-flex align-items-center">
-                  <h2 class="font-weight-bolder mb-0">120</h2>
-                </div>
-                <div
-                  class="
-                    badge badge-pill badge-glow badge-info
-                    d-flex
-                    align-items-center
-                    ml-1
-                  "
-                >
-                  6 New
-                </div>
-              </div>
-              <p class="card-text">Total Vendors</p>
-            </div>
-            <div class="avatar bg-light-danger p-50 m-0">
-              <div class="avatar-content">
-                <img
-                  src="assets/images/icon/home.svg"
-                  height="100%"
-                  width="100%"
-                  class="font-medium-5"
-                />
-                <!-- <i data-feather="home" class="font-medium-5"></i> -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6 col-12">
-        <div class="card">
-          <div class="card-header">
-            <div>
-              <h2 class="font-weight-bolder mb-0">2611</h2>
-              <p class="card-text">Total Customers</p>
-            </div>
-            <div class="avatar bg-light-warning p-50 m-0">
-              <div class="avatar-content">
-                <i data-feather="user-check" class="font-medium-5"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--/ Stats Horizontal Card -->
+<div class="content-wrapper p-0">
+  <app-content-header
+    (kpiChecked)="receiveKpiValue($event)"
+    [contentHeader]="contentHeader"
+  ></app-content-header>
 
-    <app-invoice-list></app-invoice-list>
+  <div class="content-body">
+    <div *ngIf="kpichecked">
+      <app-contact-list-kpi></app-contact-list-kpi>
+    </div>
+
+    <app-contact-list-table></app-contact-list-table>
   </div>
 </div>

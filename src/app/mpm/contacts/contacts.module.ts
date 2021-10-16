@@ -15,8 +15,9 @@ import { CoreSidebarModule } from '@core/components';
 
 import { ContentHeaderModule } from 'app/layout/components/content-header/content-header.module';
 
-import { InvoiceListComponent } from 'app/mpm/contacts/contact-list/invoice-list.component';
-import { InvoiceListService } from 'app/mpm/contacts/contact-list/invoice-list.service';
+import { ContactListTableComponent } from 'app/mpm/contacts/contact-list-table/contact-list-table.component';
+import { ContactListTableService } from 'app/mpm/contacts/contact-list-table/contact-list-table.service';
+import { ContactKpiService } from 'app/mpm/contacts/contact-kpi/contact-kpi.service';
 import { ContactComponent } from 'app/mpm/contacts/contact/contact.component';
 import { AuthGuard } from 'app/auth/helpers';
 import { Role } from 'app/auth/models';
@@ -24,9 +25,9 @@ import { Role } from 'app/auth/models';
 const routes: Routes = [
   {
     path: 'list',
-    component: InvoiceListComponent,
+    component: ContactListTableComponent,
     resolve: {
-      uls: InvoiceListService
+      uls: ContactListTableService
     },
     data: { animation: 'InvoiceListComponent' }
   },
@@ -36,17 +37,18 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { roles: [Role.Admin], animation: 'contact' },
     resolve: {
-      inv: InvoiceListService
+      css: ContactKpiService,
+      inv: ContactListTableService
     }
   }
 ];
 
 @NgModule({
-  declarations: [InvoiceListComponent, ContactComponent],
+  declarations: [ContactListTableComponent, ContactComponent],
   imports: [CommonModule, RouterModule.forChild(routes), CoreCommonModule, ContentHeaderModule, CoreDirectivesModule, Ng2FlatpickrModule,
     NgxDatatableModule, FormsModule, CorePipesModule, NgbModule, NgSelectModule, CoreSidebarModule],
-  providers: [InvoiceListService],
-  exports: [InvoiceListComponent, ContactComponent]
+  providers: [ContactListTableService, ContactKpiService],
+  exports: [ContactListTableComponent, ContactComponent]
 })
 export class ContactsModule {}
 
