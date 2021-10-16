@@ -5,9 +5,9 @@ import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/r
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable()
-export class InvoiceListService implements Resolve<any> {
+export class ContactListTableService implements Resolve<any> {
   rows: any;
-  onInvoiceListChanged: BehaviorSubject<any>;
+  onContactListTableChanged: BehaviorSubject<any>;
 
   /**
    * Constructor
@@ -16,7 +16,7 @@ export class InvoiceListService implements Resolve<any> {
    */
   constructor(private _httpClient: HttpClient) {
     // Set the defaults
-    this.onInvoiceListChanged = new BehaviorSubject({});
+    this.onContactListTableChanged = new BehaviorSubject({});
   }
 
   /**
@@ -42,7 +42,7 @@ export class InvoiceListService implements Resolve<any> {
       this._httpClient.get('api/invoice-data').subscribe((response: any) => {
         this.rows = response;
         debugger;
-      this.onInvoiceListChanged.next(this.rows);
+      this.onContactListTableChanged.next(this.rows);
       resolve(this.rows);
       }, reject);
     });

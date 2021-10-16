@@ -6,16 +6,17 @@ import { ColumnMode, DatatableComponent } from '@swimlane/ngx-datatable';
 
 import { CoreConfigService } from '@core/services/config.service';
 
-import { InvoiceListService } from 'app/mpm/contacts/contact-list/invoice-list.service';
+import { ContactListTableService } from 'app/mpm/contacts/contact-list-table/contact-list-table.service';
 
 @Component({
-  selector: 'app-invoice-list',
-  templateUrl: './invoice-list.component.html',
-  styleUrls: ['./invoice-list.component.scss'],
+  selector: 'app-contact-list-table',
+  templateUrl: './contact-list-table.component.html',
+  styleUrls: ['./contact-list-table.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class InvoiceListComponent implements OnInit, OnDestroy {
+export class ContactListTableComponent implements OnInit, OnDestroy {
   // public
+  kpiChecked = true;
   public data: any;
   public selectedOption = 10;
   public ColumnMode = ColumnMode;
@@ -33,6 +34,10 @@ export class InvoiceListComponent implements OnInit, OnDestroy {
   public searchValue = '';
   public pageBasic = 1;
 
+  receiveKpiValue($event) {
+    this.kpiChecked = $event
+  }
+
   // decorator
   @ViewChild(DatatableComponent) table: DatatableComponent;
 
@@ -48,9 +53,9 @@ export class InvoiceListComponent implements OnInit, OnDestroy {
    *
    * @param {CoreConfigService} _coreConfigService
    * @param {CalendarService} _calendarService
-   * @param {InvoiceListService} _invoiceListService
+   * @param {ContactListTableService} _contactListTableService
    */
-  constructor(private _invoiceListService: InvoiceListService, private _coreConfigService: CoreConfigService) {
+  constructor(private _contactListTableService: ContactListTableService, private _coreConfigService: CoreConfigService) {
     this._unsubscribeAll = new Subject();
   }
 
@@ -119,7 +124,7 @@ export class InvoiceListComponent implements OnInit, OnDestroy {
       // If we have zoomIn route Transition then load datatable after 450ms(Transition will finish in 400ms)
       if (config.layout.animation === 'zoomIn') {
         setTimeout(() => {
-          this._invoiceListService.onInvoiceListChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
+          this._contactListTableService.onContactListTableChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
             this.data = response;
             this.rows = this.data;
             this.tempData = this.rows;
@@ -127,7 +132,7 @@ export class InvoiceListComponent implements OnInit, OnDestroy {
           });
         }, 450);
       } else {
-        this._invoiceListService.onInvoiceListChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
+        this._contactListTableService.onContactListTableChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
           this.data = response;
           this.rows = this.data;
           this.tempData = this.rows;
