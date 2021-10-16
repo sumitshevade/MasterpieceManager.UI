@@ -7,10 +7,10 @@ import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class ContactComponent implements OnInit {
-  kpichecked = true;
+  kpiChecked = true;
   
   receiveKpiValue($event) {
-    this.kpichecked = $event
+    this.kpiChecked = $event
   }
 
   public contentHeader: object;

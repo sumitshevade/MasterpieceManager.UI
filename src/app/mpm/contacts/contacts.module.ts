@@ -17,6 +17,7 @@ import { ContentHeaderModule } from 'app/layout/components/content-header/conten
 
 import { ContactListTableComponent } from 'app/mpm/contacts/contact-list-table/contact-list-table.component';
 import { ContactListTableService } from 'app/mpm/contacts/contact-list-table/contact-list-table.service';
+import { ContactKpiComponent } from 'app/mpm/contacts/contact-kpi/contact-kpi.component';
 import { ContactKpiService } from 'app/mpm/contacts/contact-kpi/contact-kpi.service';
 import { ContactComponent } from 'app/mpm/contacts/contact/contact.component';
 import { AuthGuard } from 'app/auth/helpers';
@@ -44,11 +45,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ContactListTableComponent, ContactComponent],
+  declarations: [ContactListTableComponent, ContactKpiComponent, ContactComponent],
   imports: [CommonModule, RouterModule.forChild(routes), CoreCommonModule, ContentHeaderModule, CoreDirectivesModule, Ng2FlatpickrModule,
     NgxDatatableModule, FormsModule, CorePipesModule, NgbModule, NgSelectModule, CoreSidebarModule],
   providers: [ContactListTableService, ContactKpiService],
-  exports: [ContactListTableComponent, ContactComponent]
+  exports: [ContactListTableComponent, ContactKpiComponent, ContactComponent]
 })
 export class ContactsModule {}
 

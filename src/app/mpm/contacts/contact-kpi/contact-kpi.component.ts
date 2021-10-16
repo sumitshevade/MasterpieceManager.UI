@@ -2,9 +2,9 @@ import { Component, OnInit, ViewEncapsulation, ViewChild} from '@angular/core';
 import { ContactKpiService } from 'app/mpm/contacts/contact-kpi/contact-kpi.service';
 
 @Component({
-  selector: 'app-contact-list-kpi',
-  templateUrl: './contact-list-kpi.component.html',
-  styleUrls: ['./contact-list-kpi.component.scss'],
+  selector: 'app-contact-kpi',
+  templateUrl: './contact-kpi.component.html',
+  styleUrls: ['./contact-kpi.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class ContactKpiComponent implements OnInit {
@@ -17,7 +17,6 @@ export class ContactKpiComponent implements OnInit {
   // Public
   public data: any;
   public contentHeader: object;
-
 
   /**
    * Constructor

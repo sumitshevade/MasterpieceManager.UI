@@ -16,7 +16,6 @@ import { ContactListTableService } from 'app/mpm/contacts/contact-list-table/con
 })
 export class ContactListTableComponent implements OnInit, OnDestroy {
   // public
-  kpiChecked = true;
   public data: any;
   public selectedOption = 10;
   public ColumnMode = ColumnMode;
@@ -33,10 +32,6 @@ export class ContactListTableComponent implements OnInit, OnDestroy {
   public selectedStatus = [];
   public searchValue = '';
   public pageBasic = 1;
-
-  receiveKpiValue($event) {
-    this.kpiChecked = $event
-  }
 
   // decorator
   @ViewChild(DatatableComponent) table: DatatableComponent;
