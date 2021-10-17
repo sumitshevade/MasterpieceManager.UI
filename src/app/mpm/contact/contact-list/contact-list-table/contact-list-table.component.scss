@@ -1,0 +1,85 @@
+@import '@core/scss/base/pages/app-invoice.scss';
+@import '@core/scss/angular/libs/datatables.component.scss';
+@import '@core/scss/angular/libs/select.component.scss';
+
+@import '@core/scss/base/bootstrap-extended/_include'; // Components includes
+
+$blue-color: #0056CA;
+
+// contact list
+.contact-list-wrapper {
+  .col-actions {
+    a {
+      &:not(.dropdown-item) {
+        color: $body-color;
+      }
+    }
+  }
+}
+
+//button primary color
+.btn-primary{
+    background-color: $blue-color !important;
+}
+
+//text color
+.text-blue{
+  color: $blue-color;
+}
+
+//import & export button
+.btntext{
+  padding-left: 0.5rem;
+  font-weight: 500;
+}
+
+//table:phone text background color
+.badge-light-secondary{
+  background-color: #6C757D;
+}
+// .custom-control-input:checked{
+// background-color: #0056CA !important;
+// border-color: #0056CA !important;
+// }
+
+//pagination color
+.page-item.active 
+.page-link {
+  background-color: $blue-color;
+}
+
+// scrollbar styling
+::-webkit-scrollbar {
+  background: rgba(0, 86, 202, 0.12);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0,86,202,0.6);
+  border-radius: 5px;
+}
+
+// checkbox color
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before{
+  background-color:$blue-color;
+  border-color: $blue-color;
+}
+
+.linktext{
+  padding-left: 0.5rem;
+}
+
+.txt-show{
+  font: 'Montserrat';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  color: #6E6B7B;
+}
+
+.txt-show-selection{
+  font: 'Montserrat';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 10px;
+  color: #B9B9C3;
+}

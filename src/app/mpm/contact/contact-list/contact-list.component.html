@@ -1,9 +1,8 @@
+<app-content-header
+  (kpiChecked)="receiveKpiValue($event)"
+  [contentHeader]="contentHeader"
+></app-content-header>
 <div class="content-wrapper p-0">
-  <app-content-header
-    (kpiChecked)="receiveKpiValue($event)"
-    [contentHeader]="contentHeader"
-  ></app-content-header>
-
   <div class="content-body">
     <div *ngIf="kpiChecked">
       <app-contact-kpi></app-contact-kpi>

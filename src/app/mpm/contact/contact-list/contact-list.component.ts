@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss'],
+  selector: 'app-contact-list',
+  templateUrl: './contact-list.component.html',
+  styleUrls: ['./contact-list.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ContactComponent implements OnInit {
+export class ContactListComponent implements OnInit {
   kpiChecked = true;
   
   receiveKpiValue($event) {

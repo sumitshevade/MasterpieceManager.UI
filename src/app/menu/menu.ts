@@ -53,7 +53,7 @@ export const menu: CoreMenu[] = [
         type: 'item',
         role: ['Admin'], //? To set multiple role: ['Admin', 'Client']
         icon: 'circle',
-        url: 'contacts/contact'
+        url: 'contacts/list'
       },
       {
         // If role is not assigned will be display to all

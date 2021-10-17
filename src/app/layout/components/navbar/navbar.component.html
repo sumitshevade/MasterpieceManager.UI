@@ -4,7 +4,11 @@
     <li class="nav-item">
       <a class="navbar-brand" [routerLink]="['/']">
         <span class="brand-logo">
-          <img src="{{ coreConfig.app.appLogoImage }}" alt="brand-logo" width="36" />
+          <img
+            src="{{ coreConfig.app.appLogoImage }}"
+            alt="brand-logo"
+            width="36"
+          />
         </span>
         <h2 class="brand-text mb-0">{{ coreConfig.app.appName }}</h2>
       </a>
@@ -15,7 +19,7 @@
 
 <div class="navbar-container d-flex content">
   <div class="bookmark-wrapper d-flex align-items-center">
-    <div class="col-10 col-md-10 pr-0">
+    <div class="col-10 col-md-10 pl-0">
       <div class="input-group input-group-merge">
         <input
           type="text"
@@ -24,25 +28,26 @@
           placeholder="Search for Items, Artist, Contacts..."
           aria-label="Search..."
           aria-describedby="shop-search"
+          style="color: #ebe9f1"
         />
         <div class="input-group-append">
-          <span class="input-group-text"><i data-feather="search" class="text-muted"></i></span>
+          <span class="input-group-text"
+            ><i data-feather="search" class="text-muted"></i
+          ></span>
         </div>
       </div>
     </div>
-    <div class="col-5">
+    <div class="col-5 pl-0">
       <button
-      routerLink="/apps/invoice/preview/4990"
-      class="btn btn-outline-primary btn-block ml-2"
-      rippleEffect
-    >
-    Advance Search
-    </button>
+        routerLink="/apps/invoice/preview/4990"
+        class="btn btn-outline btn-block ml-1"
+        rippleEffect
+      >
+        <span class="search-text">Advance Search</span>
+      </button>
     </div>
-   
   </div>
   <ul class="nav navbar-nav align-items-center ml-auto">
-
     <!-- Notification -->
     <app-navbar-notification></app-navbar-notification>
     <!--/ Notification -->
@@ -59,8 +64,7 @@
       >
         <ng-container *ngIf="this.currentUser">
           <div class="user-nav d-sm-flex d-none">
-            <span class="user-name font-weight-bolder"
-              >Manager K</span
+            <span class="user-name font-weight-bolder">Manager K</span
             ><span class="user-status">{{ this.currentUser.role }}</span>
           </div>
           <span class="avatar"
@@ -73,24 +77,34 @@
           ></span>
         </ng-container>
       </a>
-      <div ngbDropdownMenu aria-labelledby="navbarUserDropdown" class="dropdown-menu dropdown-menu-right">
+      <div
+        ngbDropdownMenu
+        aria-labelledby="navbarUserDropdown"
+        class="dropdown-menu dropdown-menu-right"
+      >
         <a ngbDropdownItem [routerLink]="['/pages/profile']"
           ><span [data-feather]="'user'" [class]="'mr-50'"></span> Profile</a
         ><a ngbDropdownItem [routerLink]="['/apps/email']"
           ><span [data-feather]="'mail'" [class]="'mr-50'"></span> Inbox</a
         ><a ngbDropdownItem [routerLink]="['/apps/todo']"
-          ><span [data-feather]="'check-square'" [class]="'mr-50'"></span> Task</a
+          ><span [data-feather]="'check-square'" [class]="'mr-50'"></span>
+          Task</a
         ><a ngbDropdownItem [routerLink]="['/apps/chat']"
-          ><span [data-feather]="'message-square'" [class]="'mr-50'"></span> Chats</a
+          ><span [data-feather]="'message-square'" [class]="'mr-50'"></span>
+          Chats</a
         >
         <div class="dropdown-divider"></div>
         <a ngbDropdownItem [routerLink]="['/pages/account-settings']"
-          ><span [data-feather]="'settings'" [class]="'mr-50'"></span> Settings</a
+          ><span [data-feather]="'settings'" [class]="'mr-50'"></span>
+          Settings</a
         ><a ngbDropdownItem [routerLink]="['/pages/pricing']"
-          ><span [data-feather]="'credit-card'" [class]="'mr-50'"></span> Pricing</a
+          ><span [data-feather]="'credit-card'" [class]="'mr-50'"></span>
+          Pricing</a
         ><a ngbDropdownItem [routerLink]="['/pages/faq']"
           ><span [data-feather]="'help-circle'" [class]="'mr-50'"></span> FAQ</a
-        ><a ngbDropdownItem (click)="logout()"><span [data-feather]="'power'" [class]="'mr-50'"></span> Logout</a>
+        ><a ngbDropdownItem (click)="logout()"
+          ><span [data-feather]="'power'" [class]="'mr-50'"></span> Logout</a
+        >
       </div>
     </li>
     <!--/ User Dropdown -->

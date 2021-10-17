@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, ViewChild} from '@angular/core';
-import { ContactKpiService } from 'app/mpm/contacts/contact-kpi/contact-kpi.service';
+import { ContactKpiService } from 'app/mpm/contact/contact-kpi/contact-kpi.service';
 
 @Component({
   selector: 'app-contact-kpi',

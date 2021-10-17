@@ -7,7 +7,7 @@
   }"
 >
   <ol
-    class="breadcrumb"
+    class="breadcrumb p-0"
     [ngClass]="{
       'breadcrumb-slash': breadcrumb.type == 'slash',
       'breadcrumb-dots': breadcrumb.type == 'dots',
@@ -17,13 +17,20 @@
       'mr-1': breadcrumb.alignment == 'right'
     }"
   >
-  
     <li class="breadcrumb-item" *ngFor="let link of breadcrumb.links">
-      <a *ngIf="link.isLink" routerLink="{{ link.link }}" style="color:#0056CA ;">
-        <i [data-feather]="link.linkicon" class="font-medium-5" style="color: #0056CA;"></i>
+      <a
+        *ngIf="link.isLink"
+        routerLink="{{ link.link }}"
+        style="color: #0056ca"
+      >
+        <i
+          [data-feather]="link.linkicon"
+          style="color: #0056ca; height: 1rem; width: 1rem"
+        ></i>
       </a>
       <span *ngIf="!link.isLink">{{ link.name }}</span>
     </li>
   </ol>
 </div>
 <!-- app-breadcrumb end -->
+<!-- class="font-medium-3" -->

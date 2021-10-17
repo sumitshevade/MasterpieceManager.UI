@@ -26,13 +26,13 @@ import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
 import { ContentHeaderModule } from 'app/layout/components/content-header/content-header.module';
 
-import { ContactsModule } from './mpm/contacts/contacts.module';
+import { ContactModule } from 'app/mpm/contact/contact.module';
 import { ApiModule } from 'swagger/providers/api.module';
 
 const appRoutes: Routes = [
   {
     path: 'contacts',
-    loadChildren: () => import('./mpm/contacts/contacts.module').then(m => m.ContactsModule)
+    loadChildren: () => import('./mpm/contact/contact.module').then(m => m.ContactModule)
   },
   {
     path: 'pages',
@@ -40,7 +40,7 @@ const appRoutes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/contacts/contact',
+    redirectTo: '/contacts/list',
     pathMatch: 'full'
   },
   {
@@ -76,7 +76,7 @@ const appRoutes: Routes = [
     CardSnippetModule,
     LayoutModule,
     ContentHeaderModule,
-    ContactsModule,
+    ContactModule,
     ApiModule.forRoot({})
   ],
 

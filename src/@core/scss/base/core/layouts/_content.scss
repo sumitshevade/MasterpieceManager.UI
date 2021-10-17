@@ -34,6 +34,7 @@ html {
     margin-left: $menu-expanded-width;
     &.app-content {
       padding: calc(#{$content-padding} + #{$navbar-height} + #{$floating-nav-margin}) #{$content-padding} 0;
+      padding-top: 6.5rem !important;
       &.show-overlay {
         .content-overlay {
           z-index: 10;
@@ -333,7 +334,7 @@ html {
         .app-content {
           padding: calc(#{$content-padding} + #{$navbar-height} + #{$floating-nav-margin}) #{$content-padding} #{$footer-height}
             #{$content-padding} !important; // ? need to check all navbar types case
-        }
+          }
       }
     }
   }
@@ -428,7 +429,7 @@ html {
   html body .app-content {
     padding: calc(#{$content-padding} - 0.8rem + #{$navbar-height} + #{$floating-nav-margin})
       calc(#{$content-padding} - 0.8rem) 0 calc(#{$content-padding} - 0.8rem) !important; // - 0.8rem to reduce padding in small screen
-  }
+    }
 
   // For static navbar
   html body.navbar-static .app-content {
@@ -439,7 +440,7 @@ html {
   html body.navbar-sticky .app-content {
     padding: calc(#{$content-padding} - 0.8rem + #{$navbar-height}) calc(#{$content-padding} - 0.8rem) 0
       calc(#{$content-padding} - 0.8rem) !important; // - 0.8rem to reduce padding in small screen
-  }
+    }
 
   // For Hidden navbar
   html body.navbar-hidden .app-content {

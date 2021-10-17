@@ -44,10 +44,10 @@ app-navbar-bookmark {
   }
 }
 
-$btn-color: #0056CA;
-$txt-color: #0056CA;
-$color: #0056CA;
-
-.btn-outline-primary{
-    color: $btn-color !important;
+.btn-outline {
+  border:1px solid #0056CA !important;
+  color: #0056CA;
+}
+.search-text{
+  font-weight: 500;
 }
