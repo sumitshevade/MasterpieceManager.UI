@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-contact-list',
@@ -12,7 +12,7 @@ export class ContactListComponent implements OnInit {
   receiveKpiValue($event) {
     this.kpiChecked = $event
   }
-
+  
   public contentHeader: object;
 
   constructor() {
@@ -37,6 +37,17 @@ export class ContactListComponent implements OnInit {
     };
   }
 
+  // Lifecycle Hooks
+  // -----------------------------------------------------------------------------------------------------
+  /**
+   * On init
+   */
   ngOnInit(): void {
+  }
+
+  /**
+   * After View Init
+   */
+  ngAfterViewInit() {
   }
 }

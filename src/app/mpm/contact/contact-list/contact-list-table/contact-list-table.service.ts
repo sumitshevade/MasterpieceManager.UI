@@ -1,3 +1,4 @@
+import { environment } from './../../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
@@ -7,7 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable()
 export class ContactListTableService implements Resolve<any> {
   rows: any;
-  onContactListTableChanged: BehaviorSubject<any>;
+  onContactListChanged: BehaviorSubject<any>;
 
   /**
    * Constructor
@@ -16,7 +17,7 @@ export class ContactListTableService implements Resolve<any> {
    */
   constructor(private _httpClient: HttpClient) {
     // Set the defaults
-    this.onContactListTableChanged = new BehaviorSubject({});
+    this.onContactListChanged = new BehaviorSubject({});
   }
 
   /**
@@ -39,21 +40,11 @@ export class ContactListTableService implements Resolve<any> {
    */
   getDataTableRows(): Promise<any[]> {
     return new Promise((resolve, reject) => {
-      this._httpClient.get('api/users-data').subscribe((response: any) => {
+      this._httpClient.get(environment.apiUrl + '/api/contact').subscribe((response: any) => {
         this.rows = response;
-        this.onContactListTableChanged.next(this.rows);
+        this.onContactListChanged.next(this.rows);
         resolve(this.rows);
       }, reject);
     });
   }
-
-  // getDataTableRows(): Promise<any[]> {
-  //   return new Promise((resolve, reject) => {
-  //     this._httpClient.get('api/users-data').subscribe((response: any) => {
-  //       this.rows = response;
-  //       this.onUserListChanged.next(this.rows);
-  //       resolve(this.rows);
-  //     }, reject);
-  //   });
-  // }
 }

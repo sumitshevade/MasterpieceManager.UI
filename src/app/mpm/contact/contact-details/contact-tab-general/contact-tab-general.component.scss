@@ -1,0 +1,52 @@
+@import '@core/scss/base/pages/app-user.scss';
+@import '@core/scss/angular/libs/select.component.scss';
+
+.btn-print{
+    background-color: #0056CA;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 22px;
+    padding-right: 22px;
+    color: #FFFFFF;
+}
+
+.btn-group [class*=btn-]:not([class*=btn-outline-]):not([class*=btn-flat-]):not([class*=btn-gradient-]):not([class*=btn-relief-]){
+    border-left-color: #0056CA !important;
+    border-right-color: #0056CA !important;
+}
+
+.btn-outline.dropdown-toggle::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237367f0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-down'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.btn-firstName{
+    background-color: rgba(0, 86, 202, 0.12);
+    border: 1px;
+    color: #0056CA;
+    width: 63px;
+    padding: 8px;
+}
+
+.btn-calendar{
+    border-color: #D8D6DE !important;
+    border-left: transparent !important;
+    color: #B9B9C3 !important;
+}
+
+.txt-divider{
+    font-weight: 400 !important;
+    font-size: 16px !important;
+}
+
+.txt-formLabel{
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    color: #77728d !important;
+}
+
+.form-control::-webkit-input-placeholder { color: #6E6B7B; font-weight: 400; font-size: 12px; }  /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder {color: #6E6B7B; font-weight: 400; font-size: 12px; }  /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder { color: #6E6B7B; font-weight: 400; font-size: 12px;  }  /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder { color: #6E6B7B; font-weight: 400; font-size: 12px; }  /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder { color: #6E6B7B; font-weight: 400; font-size: 12px; }  /* Microsoft Edge */

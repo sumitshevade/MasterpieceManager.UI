@@ -1,0 +1,90 @@
+@import '@core/scss/base/pages/app-user.scss';
+@import '@core/scss/angular/libs/select.component.scss';
+
+.card .card-contact{
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.btn-phone-number{
+    border: 1px solid #0056CA !important;
+    width: 301px;
+    height: 37px;
+    border-radius: 5px;
+    padding: 10px, 23px, 10px, 23px;
+}
+
+.btn-email{
+    border: 1px solid #0056CA !important;
+    width: 301px;
+    height: 37px;
+    border-radius: 5px;
+    padding: 10px, 23px, 10px, 23px;
+}
+
+.btn-addresses{
+    border: 1px solid #0056CA !important;
+    width: 622px;
+    height: 37px;
+    border-radius: 5px;
+    padding: 10px, 23px, 10px, 23px;
+}
+
+.txt-card-title{
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    color: #5E5873 !important;
+}
+
+.txt-card-data{
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    color: #6E6B7B !important;
+}
+
+.txt-dropdown-container{
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    color: #0056CA !important;
+}
+
+.txt-sidebar{
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    color: #6E6B7B !important;
+}
+
+.badge-light-grey{
+    height: 20px !important;
+    border-radius: 4px !important;
+    // padding: 1px 9px !important;
+    background-color: rgba(108, 117, 125, 0.12) !important;
+    color: #82868B !important;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+}
+
+.card-icon{
+    font-size: 16px !important;
+}
+
+.horizontal-divider{
+    margin-top: 11px;
+    margin-bottom: 11px;
+}
+
+.blue-dots{
+    color: #0056CA !important;
+}
+
+//sidebar checkbox
+.custom-checkbox1 .custom-control-label::before {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid #D8D6DE;
+    box-shadow:0px 2px 4px rgba(115, 103, 240, 0.4);
+}
+
+.input-phoneNumber .dropdown-toggle::after{
+    background-image: url(str-replace(str-replace($chevron-down, 'currentColor', #0056CA), '#', '%23'));
+    margin-right: 11px;
+}

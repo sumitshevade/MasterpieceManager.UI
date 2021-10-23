@@ -1,0 +1,110 @@
+<div class="slideout-content">
+  <!-- Modal to add new user starts-->
+  <div class="modalsd modal-slide-in sdfade add-payment-modal" id="modals-slide-in">
+    <div class="modal-dialog sidebar-lg">
+      <div class="modal-content p-0">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          (click)="toggleSidebar('add-phone-number')"
+        >
+          ×
+        </button>
+        <div class="modal-header mb-1">
+          <h5 class="modal-title">
+            <span class="align-middle">Add phone Number</span>
+          </h5>
+        </div>
+        <div class="modal-body flex-grow-1">
+          <form>
+            <div class="form-group">
+              <label for="basicInput" class="txt-formLabel">Enter Phone Number</label>
+              <fieldset>
+                <div class="input-group input-phoneNumber">
+                  <div ngbDropdown class="input-group-prepend">
+                    <button
+                      type="button"
+                      class="btn btn-firstName"
+                      ngbDropdownToggle
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      rippleEffect
+                    >
+                    <img src="assets/images/icon/Group.svg" height="21px" width="21px" style="margin-right: 8px;"/>
+                    </button>
+                    <div ngbDropdownMenu style="width: 324px;">
+                      <a ngbDropdownItem><div class="input-group input-group-merge ">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon-search2"><i data-feather="search"></i></span>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Search for Coutries"
+                          aria-label="Search..."
+                          aria-describedby="basic-addon-search2"
+                        />
+                      </div></a>
+                      <a ngbDropdownItem href="javascript:void(0)">
+                        <img src="assets/images/icon/germany.svg" height="21px" width="21px" style="margin-right: 8px;"/>
+                         Germany (+49)</a>
+                      <a ngbDropdownItem href="javascript:void(0)">
+                        <img src="assets/images/icon/kenya.svg" height="21px" width="21px" style="margin-right: 8px;"/>
+                         Kenya (+524)</a>
+                      <a ngbDropdownItem href="javascript:void(0)">
+                        <img src="assets/images/icon/nigeria.svg" height="21px" width="21px" style="margin-right: 8px;"/>
+                         Nigeria (+234)</a>
+                      <a ngbDropdownItem href="javascript:void(0)">
+                        <img src="assets/images/icon/south-africa.svg" height="21px" width="21px" style="margin-right: 8px;"/>
+                         South Africa (+27)</a>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control txt-placeholder" />
+                </div>
+              </fieldset>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="payment-method">Select contact type</label>
+              <select class="form-control" id="payment-method">
+                <option value="" selected disabled> </option>
+              </select>
+            </div>
+            <div class="custom-control custom-checkbox custom-checkbox1">
+              <input type="checkbox" class="custom-control-input" id="customCheck2" />
+              <label class="custom-control-label" for="customCheck2"> Set as Primary</label>
+            </div>
+            <div class="form-group d-flex justify-content-center mt-2">
+              <button class="btn btn-primary mr-1" type="button">Save</button>
+              <button class="btn btn-outline" type="button">
+                Cancel
+              </button>
+            </div>
+            <!-- <div class="form-group d-flex flex-wrap mb-0">
+              <button
+                type="button"
+                class="btn btn-primary mr-1"
+                (click)="toggleSidebar('add-payment-sidebar')"
+                rippleEffect
+              >
+                Send
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                data-dismiss="modal"
+                (click)="toggleSidebar('add-payment-sidebar')"
+                rippleEffect
+              >
+                Cancel
+              </button>
+            </div> -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal to add new user Ends-->
+</div>

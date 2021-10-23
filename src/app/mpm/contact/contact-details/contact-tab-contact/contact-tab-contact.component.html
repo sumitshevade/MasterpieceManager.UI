@@ -1,0 +1,293 @@
+<div>
+  <div class="row">
+    <!-- card1 -->
+    <div class="col-3">
+      <div>
+        <button type="button" class="btn btn-outline btn-phone-number btn-block w-100" data-toggle="modal"
+        data-target="#add-phone-number" (click)="toggleSidebar('add-phone-number')"
+        rippleEffect>
+          <span [data-feather]="'plus'"></span>Add Phone Number</button>
+      </div>
+      <div class="card position-static card-contact mt-2">
+        <div class="card-body pl-1">
+          <div class="mb-2"><span class="txt-card-title">Phone Numbers</span></div>
+          <div class="card-text">
+            <table class="col-12">
+              <tbody>
+                <tr>
+                  <td><span class="txt-card-data">(925) 961-1235</span></td>
+                  <td><span class="badge badge-light-grey ml-2">Home</span></td>
+                  <td class="d-flex justify-content-end row">
+                    <div>
+                      <i class="fa fa-star text-warning card-icon"></i>
+                    </div>
+                    <div ngbDropdown container="body">
+                      <button type="button" class="btn btn-sm hide-arrow p-0" ngbDropdownToggle data-toggle="dropdown">
+                        <i data-feather="more-vertical" class="blue-dots"></i>
+                      </button>
+                      <div ngbDropdownMenu>
+                        <a ngbDropdownItem href="javascript:void(0);">
+                          <i class="fa fa-star-o mr-50 card-icon"></i><span class="txt-dropdown-container">Set as Primary</span></a>
+                        <a ngbDropdownItem href="javascript:void(0);">
+                          <i data-feather="trash-2" class="mr-50 card-icon"></i><span class="txt-dropdown-container">Delete</span></a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3"><hr class="horizontal-divider"/></td>
+                </tr>
+                <tr>
+                  <td><span class="txt-card-data">(925) 961-1235</span></td>
+                  <td><span class="badge badge-light-grey ml-2">Company</span></td>
+                  <td class="d-flex justify-content-end row">
+                    <div ngbDropdown container="body">
+                      <button type="button" class="btn btn-sm hide-arrow p-0" ngbDropdownToggle data-toggle="dropdown">
+                        <i data-feather="more-vertical" class="blue-dots"></i>
+                      </button>
+                      <div ngbDropdownMenu>
+                        <a ngbDropdownItem href="javascript:void(0);"
+                          ><i class="fa fa-star-o mr-50 card-icon"></i><span class="txt-dropdown-container">Set as Primary</span></a
+                        ><a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="trash-2" class="mr-50 card-icon"></i><span class="txt-dropdown-container">Delete</span></a
+                        >
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3"><hr class="horizontal-divider"/></td>
+                </tr>
+                <tr>
+                  <td><span class="txt-card-data">(925) 961-1235</span></td>
+                  <td><span class="badge badge-light-grey ml-2">Company</span></td>
+                  <td class="d-flex justify-content-end row">
+                    <div ngbDropdown container="body">
+                      <button type="button" class="btn btn-sm hide-arrow p-0" ngbDropdownToggle data-toggle="dropdown">
+                        <i data-feather="more-vertical" class="blue-dots"></i>
+                      </button>
+                      <div ngbDropdownMenu>
+                        <a ngbDropdownItem href="javascript:void(0);"
+                          ><i class="fa fa-star-o mr-50 fa-star card-icon"></i><span class="txt-dropdown-container">Set as Primary</span></a
+                        ><a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="trash-2" class="mr-50 card-icon"></i><span class="txt-dropdown-container">Delete</span></a
+                        >
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- card2 -->
+    <div class="col-3 border-left">
+      <div>
+        <button type="button" class="btn btn-outline btn-email btn-block w-100" data-toggle="modal"
+        data-target="#add-email" (click)="toggleSidebar('add-email')"
+        rippleEffect>
+          <span [data-feather]="'plus'" [class]="'mr-25'"></span>Add Email</button>
+      </div>
+      <div class="card position-static card-contact mt-2">
+        <div class="card-body pl-1">
+          <div class="mb-2"><span class="txt-card-title">Emails</span></div>
+          <div class="card-text">
+            <table class="col-12">
+              <tbody>
+                <tr>
+                  <td><span class="txt-card-data">stevenbramble@yahoo.com</span></td>
+                  <td class="d-flex justify-content-end row">
+                    <div>
+                      <i class="fa fa-star text-warning card-icon"></i>
+                    </div>
+                    <div ngbDropdown container="body">
+                      <button type="button" class="btn btn-sm hide-arrow p-0" ngbDropdownToggle data-toggle="dropdown">
+                        <i data-feather="more-vertical" class="blue-dots"></i>
+                      </button>
+                      <div ngbDropdownMenu>
+                        <a ngbDropdownItem href="javascript:void(0);">
+                          <i class="fa fa-star-o mr-50 card-icon"></i><span class="txt-dropdown-container">Set as Primary</span></a>
+                          <a ngbDropdownItem href="javascript:void(0);">
+                            <i data-feather="mail" class="mr-50 card-icon"></i><span class="txt-dropdown-container">Email</span></a>
+                        <a ngbDropdownItem href="javascript:void(0);">
+                          <i data-feather="trash-2" class="mr-50 card-icon"></i><span class="txt-dropdown-container">Delete</span></a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2"><hr class="horizontal-divider"/></td>
+                </tr>
+                <tr>
+                  <td><span class="txt-card-data">stevenb@gmail.com</span></td>
+                  <td class="d-flex justify-content-end row">
+                    <div ngbDropdown container="body">
+                      <button type="button" class="btn btn-sm hide-arrow p-0" ngbDropdownToggle data-toggle="dropdown">
+                        <i data-feather="more-vertical" class="blue-dots"></i>
+                      </button>
+                      <div ngbDropdownMenu>
+                        <a ngbDropdownItem href="javascript:void(0);"
+                          ><i class="fa fa-star-o mr-50 card-icon"></i><span class="txt-dropdown-container">Set as Primary</span></a
+                        ><a ngbDropdownItem href="javascript:void(0);">
+                          <i data-feather="mail" class="mr-50 card-icon"></i><span class="txt-dropdown-container">Email</span></a>
+                          <a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="trash-2" class="mr-50 card-icon"></i><span class="txt-dropdown-container">Delete</span></a
+                        >
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2"><hr class="horizontal-divider"/></td>
+                </tr>
+                <tr>
+                  <td><span class="txt-card-data">bramble123@gmail.com</span></td>
+                  <td class="d-flex justify-content-end row">
+                    <div ngbDropdown container="body">
+                      <button type="button" class="btn btn-sm hide-arrow p-0" ngbDropdownToggle data-toggle="dropdown">
+                        <i data-feather="more-vertical" class="blue-dots"></i>
+                      </button>
+                      <div ngbDropdownMenu>
+                        <a ngbDropdownItem href="javascript:void(0);"
+                          ><i class="fa fa-star-o mr-50 card-icon"></i><span class="txt-dropdown-container">Set as Primary</span></a
+                        ><a ngbDropdownItem href="javascript:void(0);">
+                          <i data-feather="mail" class="mr-50 card-icon"></i><span class="txt-dropdown-container">Email</span></a>
+                          <a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="trash-2" class="mr-50 card-icon"></i><span class="txt-dropdown-container">Delete</span></a
+                        >
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- card3 -->
+    <div class="col-6 border-left">
+      <div>
+        <button type="button" class="btn btn-outline btn-addresses btn-block w-100" data-toggle="modal"
+        data-target="#add-address" (click)="toggleSidebar('add-address')" rippleEffect>
+          <span [data-feather]="'plus'" [class]="'mr-25'"></span>Add New Address</button>
+      </div>
+      <div class="card position-static card-contact mt-2">
+        <div class="card-body pl-1">
+          <div class="mb-2"><span class="txt-card-title">Addresses</span></div>
+          <div class="card-text">
+            <table class="col-12">
+              <tbody>
+                <tr>
+                  <td><span class="txt-card-data">1976 San Vicente Drive, Livermore, CA, Zip Code: 94550</span></td>
+                  <td class="pr-5"><span class="badge badge-light-grey ml-2">Ofice</span></td>
+                  <td class="d-flex justify-content-end row">
+                    <div>
+                      <i class="fa fa-star text-warning card-icon"></i>
+                    </div>
+                    <div ngbDropdown container="body">
+                      <button type="button" class="btn btn-sm hide-arrow p-0" ngbDropdownToggle data-toggle="dropdown">
+                        <i data-feather="more-vertical" class="blue-dots"></i>
+                      </button>
+                      <div ngbDropdownMenu>
+                        <a ngbDropdownItem href="javascript:void(0);">
+                          <i class="fa fa-star-o mr-50 card-icon"></i><span class="txt-dropdown-container">Set as Primary</span></a>
+                          <a ngbDropdownItem href="javascript:void(0);">
+                            <i data-feather="copy" class="mr-50 card-icon"></i><span class="txt-dropdown-container">Copy</span></a>
+                        <a ngbDropdownItem href="javascript:void(0);">
+                          <i data-feather="trash-2" class="mr-50 card-icon"></i><span class="txt-dropdown-container">Delete</span></a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3"><hr class="horizontal-divider"/></td>
+                </tr>
+                <tr>
+                  <td><span class="txt-card-data">4049 August Lane, Monroe, LA, Zip Code: 71209</span></td>
+                  <td><span class="badge badge-light-grey ml-2">Shipping</span></td>
+                  <td class="d-flex justify-content-end row">
+                    <div ngbDropdown container="body">
+                      <button type="button" class="btn btn-sm hide-arrow p-0" ngbDropdownToggle data-toggle="dropdown">
+                        <i data-feather="more-vertical" class="blue-dots"></i>
+                      </button>
+                      <div ngbDropdownMenu>
+                        <a ngbDropdownItem href="javascript:void(0);"
+                          ><i class="fa fa-star-o mr-50 card-icon"></i><span class="txt-dropdown-container">Set as Primary</span></a
+                        ><a ngbDropdownItem href="javascript:void(0);">
+                          <i data-feather="copy" class="mr-50 card-icon"></i><span class="txt-dropdown-container">Copy</span></a>
+                          <a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="trash-2" class="mr-50 card-icon"></i><span class="txt-dropdown-container">Delete</span></a
+                        >
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3"><hr class="horizontal-divider"/></td>
+                </tr>
+                <tr>
+                  <td><span class="txt-card-data">1976 San Vicente Drive, Livermore, CA, Zip Code: 94550</span></td>
+                  <td><span class="badge badge-light-grey ml-2">Mailing</span></td>
+                  <td class="d-flex justify-content-end row">
+                    <div ngbDropdown container="body">
+                      <button type="button" class="btn btn-sm hide-arrow p-0" ngbDropdownToggle data-toggle="dropdown">
+                        <i data-feather="more-vertical" class="blue-dots"></i>
+                      </button>
+                      <div ngbDropdownMenu>
+                        <a ngbDropdownItem href="javascript:void(0);"
+                          ><i class="fa fa-star-o mr-50 card-icon"></i><span class="txt-dropdown-container">Set as Primary</span></a
+                        ><a ngbDropdownItem href="javascript:void(0);">
+                          <i data-feather="copy" class="mr-50 card-icon"></i><span class="txt-dropdown-container">Copy</span></a>
+                          <a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="trash-2" class="mr-50 card-icon"></i><span class="txt-dropdown-container">Delete</span></a
+                        >
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <button
+  class="btn btn-success btn-block mb-75"
+  data-toggle="modal"
+  data-target="#add-phone-number"
+  (click)="toggleSidebar('add-phone-number')"
+  rippleEffect
+>
+  Add Payment
+</button> -->
+<!-- Sidebar -->
+<core-sidebar
+class="modal modal-slide-in sidebar-todo-modal fade"
+name="add-phone-number"
+overlayClass="modal-backdrop"
+hideOnEsc="true"
+>
+<app-add-phone-number></app-add-phone-number>
+</core-sidebar>
+<core-sidebar
+class="modal modal-slide-in sidebar-todo-modal fade"
+name="add-email"
+overlayClass="modal-backdrop"
+hideOnEsc="true"
+>
+<app-add-email></app-add-email>
+</core-sidebar>
+<core-sidebar
+class="modal modal-slide-in sidebar-todo-modal fade"
+name="add-address"
+overlayClass="modal-backdrop"
+hideOnEsc="true"
+>
+<app-add-address></app-add-address>
+</core-sidebar>
+<!-- Sidebar -->
+</div>

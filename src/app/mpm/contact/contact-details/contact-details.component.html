@@ -1,0 +1,256 @@
+<!-- app-content-header start -->
+<ng-container *ngIf="contentHeader">
+  <div class="content-header justify-content-between row">
+    <div class="content-header-left col-md-4 col-12 mt-1 mb-2">
+      <div class="row breadcrumbs-top">
+        <div class="col-12 d-flex">
+          <!-- <h2 class="float-left mb-0">
+            {{ contentHeader.headerTitle }}
+          </h2> -->
+          <!-- app-breadcrumb component -->
+          <app-breadcrumb [breadcrumb]="contentHeader.breadcrumb"></app-breadcrumb>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-header-right justify-content-center col-xl-3 col-md-4 col-12 row">
+    
+      <!-- centered-slides swiper option-1 start -->
+    <section id="component-swiper-centered-slides" class="blue-pagination col-5">
+      <swiper class="swiper-centered-slides swiper-container " [config]="swiperswiperCenteredSlides" [(index)]="centeredSlideIndex">
+      </swiper>
+    </section>
+    <!-- centered-slides swiper option-1 ends -->
+    </div>
+
+    <div class="justify-content-end content-header-right d-flex align-items-center col-md-4 col-12 mb-1 row">
+      <div><button class="btn btn-outline mr-1" type="button">Back</button></div>
+      <div class="mr-1"><button type="button" class="btn btn-save" rippleEffect>Save</button></div>
+    </div>
+  </div>
+</ng-container>
+<!-- app-content-header end -->
+
+<div class="content-wrapper p-0">
+  <div class="content-body">
+    <!-- page users view start -->
+    <section class="app-user-view">
+      <!-- User Card & Plan Starts -->
+      <div class="row">
+        <!-- User Card starts-->
+        <div class="col-xl-12 col-lg-8 col-md-7">
+          <div class="card user-card">
+            <div class="card-body">
+              <div class="row d-flex justify-content-between">
+                <div class="col-xl-3 col-lg-12 d-flex flex-column justify-content-between border-container-lg">
+                  <div class="user-avatar-section">
+                    <div class="d-flex justify-content-start">
+                      <div *ngIf="data.avatar.length > 0; else customAvatar">
+                        <img class="img-fluid rounded" [src]="data.avatar" height="96.6px" width="97.53px" alt="User avatar" />
+                      </div>
+
+                      <ng-template #customAvatar>
+                        <div class="mr-1 ml-0">
+                          <div
+                            [ngClass]="{
+                              'bg-light-success': data.status == 'active',
+                              'bg-light-secondary': data.status == 'inactive',
+                              'bg-light-warning': data.status == 'pending'
+                            }"
+                            class="rounded p-3"
+                          >
+                            <h2
+                              [ngClass]="{
+                                'text-success': data.status == 'active',
+                                'text-secondary': data.status == 'inactive',
+                                'text-warning': data.status == 'pending'
+                              }"
+                              class="m-0"
+                            >
+                              {{ data.fullName | initials }}
+                            </h2>
+                          </div>
+                        </div>
+                      </ng-template>
+                      <div class="d-flex flex-column ml-1">
+                        <div class="user-info mb-1">
+                          <h4 class="mb-0 txt-fullname">{{ data.fullName }}</h4>
+                          <span class="txt1">{{ data.email }}</span>
+                        </div>
+                        <div class="d-flex flex-wrap">
+                          <a routerLink="/apps/user/user-edit/{{ data.id }}" class="btn btn-edit" rippleEffect
+                            >Edit</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="border-left mt-2 mt-xl-0 ml-2">
+                  <div class="col-12" style="padding-left: 20px;">
+                    <table style="height: 100%; ">
+                      <tr><td style="padding-bottom: 10px;"><span class="txt1 mr-1">Username</span></td>
+                      <td style="padding-bottom: 10px;"><span class="txt2">{{ data.username }}</span></td></tr>
+                      <tr><td style="padding-bottom: 10px;"><span class="txt1">Role</span></td>
+                      <td style="padding-bottom: 10px;"><span class="txt2">{{ data.role }}</span></td></tr>
+                      <tr><td><span class="txt1">Contact</span></td><td><span class="txt2">{{ data.contact }}</span></td></tr>
+                    </table>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-12 border-left mr-1">
+                  <label class="card-text">Contact Type</label>
+
+                  <div class="form-group contact-type-select" style="width: 400px;height: 67px; border-radius: 5px;">
+                    <!-- Select Multi Custom -->
+                    <ng-select [items]="multiIconGithubUsers | async" [multiple]="true" bindLabel="login" bindValue="login" placeholder="Select items"
+                      [(ngModel)]="multiCustomGithubUsersSelected" style="width: 400px;height: 67px; border-radius: 5px;">
+                      <ng-template ng-multi-label-tmp let-items="items" let-clear="clear" class="mb-auto p-2 pt-0">
+                        <div class="ng-value" *ngFor="let item of items | slice: 0:2">
+                          <span class="ng-value-label">{{ item.login }}
+                            </span>
+                          <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+                        </div>
+
+                        <div class="ng-value" *ngIf="items.length > 6">
+                          <span class="ng-value-label">{{ items.length - 6 }} more...</span>
+                        </div>
+                      </ng-template>
+                      
+                      <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                        <div *ngIf="item.login!=='anjmish' && item.login!=='anjmehta8'" class="row d-flex justify-content-between">
+                          <div class="ml-2"><span class="txt3">{{ item.login }}</span></div>
+                          <div class="text-right mr-2"><i data-feather="check" class="option-icon"></i></div>
+                        </div>
+
+                        <div *ngIf="item.login==='anjmish' || item.login==='anjmehta8'" class="row d-flex justify-content-between">
+                          <div class="ml-2">
+                            <span class="txt3">{{ item.login }}</span>
+                            <span class="badge badge-pill badge-glow badge-info ml-1"> Custom </span>
+                          </div>
+                          <div class="text-right mr-2"><i data-feather="check" class="option-icon"></i></div>
+                        </div>
+                      </ng-template>
+                    </ng-select>
+                    <!--/ Select Multi Custom -->
+                  </div>
+                </div>
+                <div class="col-xl-2 ml-1 d-flex justify-content-end">
+                  <table>
+                    <tr>
+                      <td>
+                        <div class="custom-control custom-control-primary custom-switch float-right">
+                          <span class="txt1">Is Active </span>
+                          <input type="checkbox" checked class="custom-control-input" id="customSwitch3" />
+                          <label class="custom-control-label" for="customSwitch3"></label>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="pt-2">
+                      <button class="btn btn-outline-danger ml-1 float-right" rippleEffect>Delete Contact</button>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /User Card Ends-->
+      </div>
+      <!-- User Card & Plan Ends -->
+
+      <!-- User Timeline & Permissions Starts -->
+      <div class="col-12 p-0">
+        <core-card-snippet>
+          <div class="card-body">
+            <ul ngbNav #nav="ngbNav" class="nav nav-pills ">
+              <li ngbNavItem>
+                <!-- <app-contact-tab-general></app-contact-tab-general> -->
+                <a ngbNavLink>General</a>
+                <ng-template ngbNavContent>
+                  <app-contact-tab-general></app-contact-tab-general>
+                </ng-template>
+              </li>
+
+              <li ngbNavItem>
+                <a ngbNavLink>Contact</a>
+                <ng-template ngbNavContent>
+                  <app-contact-tab-contact></app-contact-tab-contact>
+                </ng-template>
+              </li>
+
+              <li ngbNavItem [disabled]="true">
+                <a href="javascript:void(0)" ngbNavLink>Notes</a>
+                <ng-template ngbNavContent>
+                  <p>
+                    Cake croissant lemon drops gummi bears carrot cake biscuit cupcake croissant. Macaroon lemon drops
+                    muffin jelly sugar plum chocolate cupcake danish icing. Soufflé tootsie roll lemon drops sweet
+                    roll cake icing cookie halvah cupcake.Chupa chups pie jelly pie tootsie roll dragée cookie
+                    caramels sugar plum. Jelly oat cake wafer pie cupcake chupa chups jelly-o gingerbread.
+                  </p>
+                </ng-template>
+              </li>
+
+              <li ngbNavItem>
+                <a ngbNavLink>Artist Details</a>
+                <ng-template ngbNavContent>
+                  <p>
+                    Chocolate croissant cupcake croissant jelly donut. Cheesecake toffee apple pie chocolate bar
+                    biscuit tart croissant. Lemon drops danish cookie. Oat cake macaroon icing tart lollipop cookie
+                    sweet bear claw. Toffee jelly-o pastry cake dessert chocolate bar jelly beans fruitcake. Dragée
+                    sweet fruitcake dragée biscuit halvah wafer gingerbread dessert. Gummies fruitcake brownie gummies
+                    tart pudding.
+                  </p>
+                </ng-template>
+              </li>
+
+              <li ngbNavItem>
+                <a ngbNavLink>Transaction</a>
+                <ng-template ngbNavContent>
+                  <p>
+                    Pudding candy canes sugar plum cookie chocolate cake powder croissant. Carrot cake tiramisu danish
+                    candy cake muffin croissant tart dessert. Tiramisu caramels candy canes chocolate cake sweet roll
+                    liquorice icing cupcake.Bear claw chocolate chocolate cake jelly-o pudding lemon drops sweet roll
+                    sweet candy. Chocolate sweet chocolate bar candy chocolate bar chupa chups gummi bears lemon
+                    drops.
+                  </p>
+                </ng-template>
+              </li>
+
+              <li ngbNavItem>
+                <a ngbNavLink>Tasks</a>
+                <ng-template ngbNavContent>
+                  <p>
+                    Pudding candy canes sugar plum cookie chocolate cake powder croissant. Carrot cake tiramisu danish
+                    candy cake muffin croissant tart dessert. Tiramisu caramels candy canes chocolate cake sweet roll
+                    liquorice icing cupcake.Bear claw chocolate chocolate cake jelly-o pudding lemon drops sweet roll
+                    sweet candy. Chocolate sweet chocolate bar candy chocolate bar chupa chups gummi bears lemon
+                    drops.
+                  </p>
+                </ng-template>
+              </li>
+
+              <li ngbNavItem>
+                <a ngbNavLink>Interests</a>
+                <ng-template ngbNavContent>
+                  <p>
+                    Pudding candy canes sugar plum cookie chocolate cake powder croissant. Carrot cake tiramisu danish
+                    candy cake muffin croissant tart dessert. Tiramisu caramels candy canes chocolate cake sweet roll
+                    liquorice icing cupcake.Bear claw chocolate chocolate cake jelly-o pudding lemon drops sweet roll
+                    sweet candy. Chocolate sweet chocolate bar candy chocolate bar chupa chups gummi bears lemon
+                    drops.
+                  </p>
+                </ng-template>
+              </li>
+            </ul>
+            <div [ngbNavOutlet]="nav" class="mt-1"></div>
+          </div>
+        </core-card-snippet>
+      </div>
+      <!-- User Timeline & Permissions Ends -->
+    </section>
+    <!-- page users view end -->
+  </div>
+</div>

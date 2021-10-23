@@ -8,24 +8,25 @@ import { ContactKpiService } from 'app/mpm/contact/contact-kpi/contact-kpi.servi
   encapsulation: ViewEncapsulation.None
 })
 export class ContactKpiComponent implements OnInit {
-  kpiChecked = true;
+  kpichecked = true;
   
   receiveKpiValue($event) {
-    this.kpiChecked = $event
+    this.kpichecked = $event
   }
 
   // Public
   public data: any;
   public contentHeader: object;
 
+
   /**
    * Constructor
    *
-   * @param {ContactKpiService} _contactKpiService
+   * @param {KpiService} _kpiService
    *
    */
   constructor(
-    private _contactKpiService: ContactKpiService,
+    private _kpiService: ContactKpiService,
   ) 
   {
     this.contentHeader = {
@@ -51,7 +52,7 @@ export class ContactKpiComponent implements OnInit {
 
   ngOnInit(): void {
     // Get the kpi data
-    this._contactKpiService.onApiDataChanged.subscribe(response => {
+    this._kpiService.onApiDataChanged.subscribe(response => {
       this.data = response;
     });
   }

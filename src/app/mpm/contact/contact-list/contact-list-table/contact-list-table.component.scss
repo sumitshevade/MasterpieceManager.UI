@@ -6,6 +6,10 @@
 
 $blue-color: #0056CA;
 
+.break-wrap-word {
+  word-wrap: break-word;
+}
+
 // contact list
 .contact-list-wrapper {
   .col-actions {
@@ -50,14 +54,26 @@ $blue-color: #0056CA;
 
 // scrollbar styling
 ::-webkit-scrollbar {
-  background: rgba(0, 86, 202, 0.12);
+  background: rgba(185, 185, 195, 0.16);
+  border-radius: 7px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0,86,202,0.6);
-  border-radius: 5px;
+  background: rgba(185, 185, 195, 1);
+  border-radius: 6px;
 }
 
+body::-webkit-scrollbar {
+  background: rgba(185, 185, 195, 0.16);
+  border-radius: 7px;
+  width: 6px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(185, 185, 195, 1);
+  border-radius: 6px;
+}
 // checkbox color
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before{
   background-color:$blue-color;

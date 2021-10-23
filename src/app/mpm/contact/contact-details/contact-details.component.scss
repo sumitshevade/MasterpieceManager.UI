@@ -1,0 +1,98 @@
+@import '@core/scss/base/pages/app-user.scss';
+@import '@core/scss/angular/libs/select.component.scss';
+@import '@core/scss/angular/libs/swiper.component.scss';
+
+.txt-fullname{
+    font-size: 18px !important;
+}
+
+//email, username, role, contact, is active
+.txt1{
+    font-size: 14px;
+}
+
+.txt2{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.txt3{
+    font-weight: 600;
+    font-size: 14px;
+    color: #0056CA;
+}
+
+.option-icon{
+color: #82868B;
+width: 16px;
+height: 16px;
+}
+
+.btn-save{
+    width: 79px;
+    height: 37px;
+    border-radius: 5px;
+    background-color: #0056CA;
+    color: #FFFFFF;
+}
+
+.btn-edit{
+    width: 74px;
+    height: 37px;
+    border-radius: 5px;
+    background-color: #0056CA;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: #82868B;
+    border-color: #82868B;
+    box-shadow: rgba(130, 134, 139, 0.38);
+}
+
+.ng-select .ng-select-container{
+    width: 400px !important;
+    height: 67px !important;
+    border-radius: 5px !important;
+}
+
+.ng-value-container{
+    width: 400px !important;
+    height: 67px !important;
+}
+
+.contact-type-select .ng-select .ng-option.ng-option-selected{
+    background-color: rgba(108, 117, 125, 0.12) !important;
+}
+
+.contact-type-select .ng-select .ng-option.ng-option-selected.ng-option-marked{
+    background-color: rgba(108, 117, 125, 0.12) !important;
+}
+
+.contact-type-select .ng-select.ng-select-multiple .ng-value{
+    background-color: #82868B !important;
+}
+
+.blue-pagination .swiper-container{
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: unset !important;
+}
+
+.blue-pagination .swiper-centered-slides .swiper-button-next:after, .swiper-centered-slides .swiper-button-prev:after{
+    background-color: #0056CA !important;
+}
+
+.blue-pagination .swiper-button-next.swiper-button-disabled{
+    opacity: 1 !important;
+}
+
+.blue-pagination .swiper-centered-slides .swiper-button-next, .swiper-centered-slides .swiper-button-prev{
+    height: 32px !important;
+    // width: 32px !important;
+}
+
+.blue-pagination .swiper-button-next {
+    font-size: 150px;
+  }

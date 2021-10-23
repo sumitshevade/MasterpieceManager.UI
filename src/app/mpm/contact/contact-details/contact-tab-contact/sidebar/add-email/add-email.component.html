@@ -1,0 +1,61 @@
+<div class="slideout-content">
+  <!-- Modal to add new user starts-->
+  <div class="modalsd modal-slide-in sdfade add-payment-modal" id="modals-slide-in">
+    <div class="modal-dialog sidebar-lg">
+      <div class="modal-content p-0">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          (click)="toggleSidebar('add-phone-number')"
+        >
+          ×
+        </button>
+        <div class="modal-header mb-1">
+          <h5 class="modal-title">
+            <span class="align-middle">Add Email</span>
+          </h5>
+        </div>
+        <div class="modal-body flex-grow-1">
+          <form>
+            <div class="form-group">
+              <label class="form-label txt-sidebar">Enter email address</label>
+              <input type="text" class="form-control" id="basicInput" />
+            </div>
+            <div class="custom-control custom-checkbox custom-checkbox1">
+              <input type="checkbox" class="custom-control-input" id="customCheck2" />
+              <label class="custom-control-label" for="customCheck2"> Set as Primary</label>
+            </div>
+            <div class="form-group d-flex justify-content-center mt-2">
+              <button class="btn btn-primary mr-1" type="button">Save</button>
+              <button class="btn btn-outline" type="button">
+                Cancel
+              </button>
+            </div>
+            <!-- <div class="form-group d-flex flex-wrap mb-0">
+              <button
+                type="button"
+                class="btn btn-primary mr-1"
+                (click)="toggleSidebar('add-payment-sidebar')"
+                rippleEffect
+              >
+                Send
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                data-dismiss="modal"
+                (click)="toggleSidebar('add-payment-sidebar')"
+                rippleEffect
+              >
+                Cancel
+              </button>
+            </div> -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal to add new user Ends-->
+</div>

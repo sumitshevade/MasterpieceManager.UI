@@ -35,7 +35,6 @@ export class ContactListTableComponent implements OnInit, OnDestroy {
    * Constructor
    *
    * @param {CoreConfigService} _coreConfigService
-   * @param {CalendarService} _calendarService
    * @param {ContactListTableService} _contactListTableService
    */
   constructor(private _contactListTableService: ContactListTableService, private _coreConfigService: CoreConfigService) {
@@ -51,13 +50,13 @@ export class ContactListTableComponent implements OnInit, OnDestroy {
       // If we have zoomIn route Transition then load datatable after 450ms(Transition will finish in 400ms)
       if (config.layout.animation === 'zoomIn') {
         setTimeout(() => {
-          this._contactListTableService.onContactListTableChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
+          this._contactListTableService.onContactListChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
             this.data = response;
             this.rows = this.data;
           });
         }, 450);
       } else {
-        this._contactListTableService.onContactListTableChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
+        this._contactListTableService.onContactListChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
           this.data = response;
           this.rows = this.data;
         });
