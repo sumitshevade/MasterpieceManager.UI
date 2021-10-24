@@ -40,7 +40,7 @@ export class ContactListTableService implements Resolve<any> {
    */
   getDataTableRows(): Promise<any[]> {
     return new Promise((resolve, reject) => {
-      this._httpClient.get(environment.apiUrl + '/api/contact').subscribe((response: any) => {
+      this._httpClient.get('/api/users-data').subscribe((response: any) => {
         this.rows = response;
         this.onContactListChanged.next(this.rows);
         resolve(this.rows);
