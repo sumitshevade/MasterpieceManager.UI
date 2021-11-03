@@ -64,11 +64,11 @@ export class ContactDetailsComponent implements OnInit, OnDestroy {
           {
             name: 'Contact List',
             isLink: false
+          },
+          {
+            name: 'Contact Details',
+            isLink: false
           }
-          // {
-          //   name: 'Contact Details',
-          //   isLink: false
-          // }
         ]
       }
     };

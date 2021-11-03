@@ -1,14 +1,12 @@
-<!-- app-content-header start -->
+<!-- content header start -->
 <ng-container *ngIf="contentHeader">
   <div class="content-header justify-content-between row">
     <div class="content-header-left col-md-4 col-12 mt-1 mb-2">
       <div class="row breadcrumbs-top">
         <div class="col-12 d-flex">
-          <!-- <h2 class="float-left mb-0">
-            {{ contentHeader.headerTitle }}
-          </h2> -->
-          <!-- app-breadcrumb component -->
-          <app-breadcrumb [breadcrumb]="contentHeader.breadcrumb"></app-breadcrumb>
+          <app-breadcrumb
+            [breadcrumb]="contentHeader.breadcrumb"
+          ></app-breadcrumb>
         </div>
       </div>
     </div>
@@ -29,15 +27,14 @@
     </div>
   </div>
 </ng-container>
-<!-- app-content-header end -->
+<!-- content header end -->
 
 <div class="content-wrapper p-0">
   <div class="content-body">
     <!-- page users view start -->
     <section class="app-user-view">
-      <!-- User Card & Plan Starts -->
+      <!-- User Card Starts -->
       <div class="row">
-        <!-- User Card starts-->
         <div class="col-xl-12 col-lg-8 col-md-7">
           <div class="card user-card">
             <div class="card-body">
@@ -157,17 +154,15 @@
             </div>
           </div>
         </div>
-        <!-- /User Card Ends-->
       </div>
-      <!-- User Card & Plan Ends -->
+      <!-- User Card Ends -->
 
-      <!-- User Timeline & Permissions Starts -->
+      <!-- User Info Starts -->
       <div class="col-12 p-0">
         <core-card-snippet>
           <div class="card-body">
             <ul ngbNav #nav="ngbNav" class="nav nav-pills ">
               <li ngbNavItem>
-                <!-- <app-contact-tab-general></app-contact-tab-general> -->
                 <a ngbNavLink>General</a>
                 <ng-template ngbNavContent>
                   <app-contact-tab-general></app-contact-tab-general>
@@ -209,13 +204,7 @@
               <li ngbNavItem>
                 <a ngbNavLink>Transaction</a>
                 <ng-template ngbNavContent>
-                  <p>
-                    Pudding candy canes sugar plum cookie chocolate cake powder croissant. Carrot cake tiramisu danish
-                    candy cake muffin croissant tart dessert. Tiramisu caramels candy canes chocolate cake sweet roll
-                    liquorice icing cupcake.Bear claw chocolate chocolate cake jelly-o pudding lemon drops sweet roll
-                    sweet candy. Chocolate sweet chocolate bar candy chocolate bar chupa chups gummi bears lemon
-                    drops.
-                  </p>
+                  <app-contact-tab-transaction></app-contact-tab-transaction>
                 </ng-template>
               </li>
 
@@ -249,7 +238,9 @@
           </div>
         </core-card-snippet>
       </div>
-      <!-- User Timeline & Permissions Ends -->
+      <!-- User Info Ends -->
+
+     
     </section>
     <!-- page users view end -->
   </div>

@@ -1,0 +1,113 @@
+@import '@core/scss/angular/libs/datatables.component.scss';
+
+//card styling
+.card .card-details{
+    // box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1) !important;
+    border: solid 1px #EBE9F1;
+    border-radius: 6px ;
+}
+
+.modal-slide-in .modal-dialog-transaction-sidebar{
+ width: 710px;
+}
+
+.txt-table-footer1{
+    padding-left: 920px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #6E6B7B;
+}
+
+.txt-table-footer2{
+    padding-left: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #6E6B7B;
+}
+
+.txt-transaction-table-data{
+    color: #6E6B7B;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.txt-card-name{
+    font-weight: 500;
+    font-size: 15px;
+    color: #5E5873;
+}
+
+.txt-card-number{
+    font-weight: 400;
+    font-size: 14px;
+    color: #6E6B7B;
+}
+
+.badge-light-card-primary{
+    color: #0056CA;
+    background-color: rgba(0, 86, 202, 0.12);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge-light-card-expired{
+    color: #EA5455;
+    background-color: rgba(234, 84, 85, 0.12);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.btn-edit-card{
+    color: #0056CA;
+    border-radius: 5px;
+    padding: 10px, 23px, 10px, 23px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.btn-delete-card{
+    color: #0056CA;
+    padding: 10px, 23px, 10px, 23px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.btn-add-card{
+    background-color: #0056CA;
+    border-radius: 5px;
+    padding: 10px, 22px, 10px, 22px;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.btn-save-card{
+    background-color: #0056CA;
+    border-radius: 5px;
+    padding: 10px, 22px, 10px, 22px;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.btn-cancel-edit{
+    border: 1px solid #82868B !important;
+    color: #82868B;
+    border-radius: 5px;
+    padding: 10px, 23px, 10px, 23px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+//input placeholder styling
+.form-control-card-details::-webkit-input-placeholder { color: #B9B9C3; font-weight: 400; font-size: 12px; }  /* WebKit, Blink, Edge */
+.form-control-card-details:-moz-placeholder {color: #B9B9C3; font-weight: 400; font-size: 12px; }  /* Mozilla Firefox 4 to 18 */
+.form-control-card-details::-moz-placeholder { color: #B9B9C3; font-weight: 400; font-size: 12px;  }  /* Mozilla Firefox 19+ */
+.form-control-card-details:-ms-input-placeholder { color: #B9B9C3; font-weight: 400; font-size: 12px; }  /* Internet Explorer 10-11 */
+.form-control-card-details::-ms-input-placeholder { color: #B9B9C3; font-weight: 400; font-size: 12px; }  /* Microsoft Edge */
+
+.form-control-card-details{color: #B9B9C3; font-weight: 400; font-size: 12px;}
+
+.ngx-datatable-transaction .datatable-body{
+    border:1px solid #EBE9F1;
+}

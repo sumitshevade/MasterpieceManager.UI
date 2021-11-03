@@ -1,0 +1,8 @@
+{
+    "/CompanyAPI": {
+      "target": "https://dev.masterpiecemanager.com",
+      "secure": true,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }

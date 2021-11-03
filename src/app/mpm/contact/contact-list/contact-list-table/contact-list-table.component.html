@@ -65,9 +65,9 @@
           <ngx-datatable-column name="First Name" prop="firstName" [width]="150" [frozenLeft]="true">
             <ng-template let-row="row" let-name="value" ngx-datatable-cell-template>
               <div class="d-flex align-items-center">
-                <div *ngIf="row.custom2.length > 0; else customAvatar">
+                <!-- <div *ngIf="row.custom2.length > 0; else customAvatar">
                   <img class="rounded-circle mr-1" src="../../../../../assets/images/portrait/small/{{ row.custom2 }}" height="32" width="32" alt="datatable-avatar"/>
-                </div>
+                </div> -->
 
                 <ng-template #customAvatar>
                   <div class="avatar mr-1 ml-0"
@@ -109,39 +109,41 @@
             </ng-template>
           </ngx-datatable-column>
 
-          <ngx-datatable-column name="Scancode" prop="url" [width]="150">
+          <ngx-datatable-column name="Scancode" prop="email" [width]="150">
             <ng-template let-row="row" let-name="value" ngx-datatable-cell-template>
               <div class="d-flex align-items-center">
                 <div class="cell-line-height">
-                  <span class="break-wrap-word"> {{ row.url }}</span>
+                  <span class="break-wrap-word"> {{ row.email }}</span>
                 </div>
               </div>
             </ng-template>
           </ngx-datatable-column>
 
-          <ngx-datatable-column name="Phone" prop="issuedDate" [width]="100">
+          <ngx-datatable-column name="Phone" prop="phone" [width]="100">
             <ng-template let-row="row" let-name="value" ngx-datatable-cell-template>
               <div class="badge badge-light-secondary">
                 <span class="break-wrap-word">
-                  {{ row.custom1 }}
+                  {{ row.phone }}
                 </span>
               </div>
             </ng-template>
           </ngx-datatable-column>
 
-          <ngx-datatable-column name="Company" prop="balance" [width]="40">
+          <ngx-datatable-column name="Company" prop="company" [width]="40">
             <ng-template let-row="row" let-name="value" let-balance="value" ngx-datatable-cell-template>
               <div>
                 <span class="break-wrap-word">
-                  {{  row.custom3 }}
+                  {{  row.company }}
                 </span>
               </div>
             </ng-template>
           </ngx-datatable-column>
 
-          <ngx-datatable-column name="Job Title" [width]="40" [sortable]="false">
+          <ngx-datatable-column name="Job Title" prop="jobTitle" [width]="40" [sortable]="false">
             <ng-template ngx-datatable-cell-template let-row="row">
-              <div class="d-flex align-items-center col-actions break-wrap-word">Test</div>
+              <div class="d-flex align-items-center col-actions break-wrap-word"><span class="break-wrap-word">
+                  {{  row.jobTitle }}
+                </span></div>
             </ng-template>
           </ngx-datatable-column>
         </ngx-datatable>

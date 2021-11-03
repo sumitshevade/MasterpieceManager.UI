@@ -1,0 +1,116 @@
+<div>
+  <!-- datatable -->
+  <section id="ngx-datatable-Responsive">
+    <!-- <core-card-snippet [snippetCode]="_snippetCodeResponsive"> -->
+
+      <!-- ngx-datatables responsive -->
+      <ngx-datatable
+        #table
+        class="bootstrap core-bootstrap ngx-datatable-transaction"
+        [columnMode]="ColumnMode.force"
+        [headerHeight]="40"
+        [rowHeight]="50"
+        [footerHeight]="40"
+        rowHeight="auto"
+        [limit]="10"
+        [rows]="rows"
+      >
+        <ngx-datatable-column name="TRANS." prop="trans" [width]="60" [sortable]="false">
+          <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
+            <span class="txt-transaction-table-data text-wrap">
+              {{ value }}
+            </span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="DATE" prop="date" [width]="115" [sortable]="false">
+          <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
+            <div class="badge badge-light-secondary">
+              <span class="break-wrap-word">
+                {{value}}
+              </span>
+            </div>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="TITLE" prop="title" [width]="165" [sortable]="false">
+          <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
+            <span class="txt-transaction-table-data text-wrap">
+              {{ value }}
+            </span>
+          </ng-template>
+          
+        </ngx-datatable-column>
+        <ngx-datatable-column name="ARTIST" prop="artist" [width]="100" [sortable]="false">
+          <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
+            <span class="txt-transaction-table-data text-wrap">
+              {{ value }}
+            </span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="EDITION" prop="edition" [width]="100" [sortable]="false">
+          <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
+            <span class="txt-transaction-table-data text-wrap">
+              {{ value }}
+            </span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="TYPE" prop="type" [width]="50" [sortable]="false">
+          <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
+            <span class="txt-transaction-table-data text-wrap">
+              {{ value }}
+            </span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="QTY" prop="qty" [width]="50" [sortable]="false">
+          <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
+            <span class="txt-transaction-table-data text-wrap">
+              {{ value }}
+            </span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="ITEM TOTAL" prop="itemTotal" [width]="100" [sortable]="false">
+          <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
+            <span class="txt-transaction-table-data text-wrap">
+              {{ value }}
+            </span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="TRANS. TOTAL" prop="transTotal" [width]="120" [sortable]="false">
+          <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
+            <span class="txt-transaction-table-data text-wrap">
+              {{ value }}
+            </span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="LOCATION" prop="location" [width]="100" [sortable]="false">
+          <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
+            <span class="text-wrap">
+              {{ value }}
+            </span>
+          </ng-template>
+        </ngx-datatable-column>
+        
+        <ngx-datatable-footer>
+          <ng-template ngx-datatable-footer-template>
+            <span class="txt-table-footer1">Total: </span>
+            <span class="txt-table-footer2">62.52</span>
+          </ng-template>
+        </ngx-datatable-footer>
+      </ngx-datatable>
+      <!--/ ngx-datatables responsive -->
+    <!-- </core-card-snippet> -->
+  </section>
+  <!-- <div><button class="btn btn-outline mr-1" type="button">Card Details</button></div> -->
+  <button type="button" class="btn btn-outline" data-toggle="modal"
+        data-target="#card-details" (click)="toggleSidebar('card-details')"
+        rippleEffect>Card Details</button>
+  <!-- datatable end -->
+</div>
+
+<core-sidebar
+class="modal modal-slide-in sidebar-todo-modal fade"
+name="card-details"
+overlayClass="modal-backdrop"
+hideOnEsc="true"
+>
+<app-card-details></app-card-details>
+</core-sidebar>

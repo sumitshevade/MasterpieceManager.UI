@@ -35,9 +35,13 @@ import { ContactDetailsService } from 'app/mpm/contact/contact-details/contact-d
 
 import { ContactTabGeneralComponent } from 'app/mpm/contact/contact-details/contact-tab-general/contact-tab-general.component';
 import { ContactTabContactComponent } from 'app/mpm/contact/contact-details/contact-tab-contact/contact-tab-contact.component';
+import { ContactTabTransactionComponent } from 'app/mpm/contact/contact-details/contact-tab-transaction/contact-tab-transaction.component';
 import { AddPhoneNumberSidebarComponent } from 'app/mpm/contact/contact-details/contact-tab-contact/sidebar/add-phone-number/add-phone-number.component';
 import { AddEmailSidebarComponent } from 'app/mpm/contact/contact-details/contact-tab-contact/sidebar/add-email/add-email.component';
 import { AddAddressSidebarComponent } from 'app/mpm/contact/contact-details/contact-tab-contact/sidebar/add-address/add-address.component';
+import { CardDetailsSidebarComponent } from 'app/mpm/contact/contact-details/contact-tab-transaction/sidebar/card-details/card-details.component';
+
+import { DatatablesService } from 'app/mpm/contact/contact-details/contact-tab-transaction/datatables.service';
 
 // swiper configuration
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -49,7 +53,7 @@ const routes = [
   {
     path: 'list',
     component: ContactListComponent,
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
     data: { roles: [Role.Admin], 
       animation: 'danalytics' },
     resolve: {
@@ -80,9 +84,11 @@ const routes = [
     ContactDetailsComponent,
     ContactTabGeneralComponent,
     ContactTabContactComponent,
+    ContactTabTransactionComponent,
     AddPhoneNumberSidebarComponent,
     AddEmailSidebarComponent,
-    AddAddressSidebarComponent
+    AddAddressSidebarComponent,
+    CardDetailsSidebarComponent
   ],
   imports: [
     CommonModule,
@@ -102,7 +108,7 @@ const routes = [
     CardSnippetModule,
     SwiperModule
   ],
-  providers: [ContactListTableService, ContactKpiService, ContactDetailsService,{
+  providers: [ContactListTableService, ContactKpiService, ContactDetailsService, DatatablesService,{
     provide: SWIPER_CONFIG,
     useValue: DEFAULT_SWIPER_CONFIG
   }],

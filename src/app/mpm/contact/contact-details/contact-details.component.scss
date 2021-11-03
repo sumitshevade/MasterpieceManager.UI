@@ -6,16 +6,38 @@
     font-size: 18px !important;
 }
 
-//email, username, role, contact, is active
+//email data, username, role, contact, is active
 .txt1{
     font-size: 14px;
 }
 
+//username data, role data, contact data
 .txt2{
     font-size: 14px;
     font-weight: 600;
 }
 
+
+//save button
+.btn-save{
+    width: 79px;
+    height: 37px;
+    border-radius: 5px;
+    background-color: #0056CA;
+    color: #FFFFFF;
+}
+
+//edit button
+.btn-edit{
+    width: 74px;
+    height: 37px;
+    border-radius: 5px;
+    background-color: #0056CA;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+//dropdown styling
 .txt3{
     font-weight: 600;
     font-size: 14px;
@@ -26,23 +48,6 @@
 color: #82868B;
 width: 16px;
 height: 16px;
-}
-
-.btn-save{
-    width: 79px;
-    height: 37px;
-    border-radius: 5px;
-    background-color: #0056CA;
-    color: #FFFFFF;
-}
-
-.btn-edit{
-    width: 74px;
-    height: 37px;
-    border-radius: 5px;
-    background-color: #0056CA;
-    color: #FFFFFF;
-    font-size: 14px;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -74,6 +79,7 @@ height: 16px;
     background-color: #82868B !important;
 }
 
+//swiper styling
 .blue-pagination .swiper-container{
     margin: 0 !important;
     padding: 0 !important;
@@ -90,7 +96,6 @@ height: 16px;
 
 .blue-pagination .swiper-centered-slides .swiper-button-next, .swiper-centered-slides .swiper-button-prev{
     height: 32px !important;
-    // width: 32px !important;
 }
 
 .blue-pagination .swiper-button-next {
