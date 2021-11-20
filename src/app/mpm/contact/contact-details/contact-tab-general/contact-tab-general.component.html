@@ -26,186 +26,163 @@
       </div>
     </div>
   </div>
-  <div class="divider txt-divider mt-2 mb-2">
-    <div class="divider-text">Personal Information</div>
-  </div>
-  <div class="mb-1 row">
-    <div class="form-group col-3">
-      <label for="basicInput" class="txt-formLabel">First Name</label>
-      <fieldset>
-        <div class="input-group input-firstname">
-          <div ngbDropdown class="input-group-prepend">
-            <button
-              type="button"
-              class="btn btn-firstName"
-              ngbDropdownToggle
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-              rippleEffect
-            >
-              Mr.
-            </button>
-            <div ngbDropdownMenu>
-              <a ngbDropdownItem href="javascript:void(0)">Mr.</a>
-              <a ngbDropdownItem href="javascript:void(0)">Ms.</a>
-              <a ngbDropdownItem href="javascript:void(0)">Something else here</a>
+
+  <form [formGroup]="contactDetailsForm" (ngSubmit)="onContactDetails()">
+    <div class="divider txt-divider mt-2 mb-2">
+      <div class="divider-text">Personal Information</div>
+    </div>
+    <div class="mb-1 row">
+      <div class="form-group col-3">
+        <label for="basicInput" class="txt-formLabel">First Name</label>
+        <fieldset>
+          <div class="input-group input-firstname">
+            <div ngbDropdown class="input-group-prepend">
+              <button type="button" class="btn btn-firstName" ngbDropdownToggle data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" rippleEffect>
+                Mr.
+              </button>
+              <div ngbDropdownMenu>
+                <a ngbDropdownItem href="javascript:void(0)">Mr.</a>
+                <a ngbDropdownItem href="javascript:void(0)">Ms.</a>
+                <a ngbDropdownItem href="javascript:void(0)">Something else here</a>
+              </div>
             </div>
+            <input type="text" class="form-control txt-placeholder" formControlName="firstName" placeholder="Prashant" />
           </div>
-          <input type="text" class="form-control txt-placeholder" placeholder="Prashant" />
+        </fieldset>
+      </div>
+      <div class="form-group col-3">
+        <label for="lastName" class="txt-formLabel">Last Name</label>
+        <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Shah" />
+      </div>
+      <div class="form-group col-3">
+        <label for="spousePartner" class="txt-formLabel">Spouse/Partner</label>
+        <input type="text" class="form-control" formControlName="spousePartner"  id="spousePartner" />
+      </div>
+      <div class="form-group col-3">
+        <label for="companyId" class="txt-formLabel">Company</label>
+        <input type="number" class="form-control" formControlName="companyId" id="companyId" placeholder="Test" />
+      </div>
+    </div>
+    <div class="mb-1 row">
+      <div class="form-group col-3">
+        <label for="jobTitle" class="txt-formLabel">Job Title</label>
+        <input type="text" class="form-control" name="jobTitle" formControlName="jobTitle" id="jobTitle" placeholder="Test" />
+      </div>
+      <div class="form-group col-3">
+        <label for="url" class="txt-formLabel">URL</label>
+        <input type="text" class="form-control" id="url" formControlName="url" placeholder="URL" />
+      </div>
+      <div class="form-group col-3">
+        <label for="dob" class="txt-formLabel">DOB</label>
+        <div class="input-group">
+          <input type="text" class="form-control" formControlName="dob" placeholder="yyyy-mm-dd" name="datePicker"
+            ngbDatepicker #basicDP="ngbDatepicker" style="border-right: transparent;"[(ngModel)]="basicDPdata"
+            />
+          <div class="input-group-append">
+            <button class="btn btn-outline btn-calendar feather icon-calendar" (click)="basicDP.toggle()" type="button"
+              rippleEffect></button>
+          </div>
         </div>
-      </fieldset>
-    </div>
-    <div class="form-group col-3">
-      <label for="basicInput" class="txt-formLabel">Last Name</label>
-      <input type="text" class="form-control" id="basicInput" placeholder="Shah" style="color: red;"/>
-    </div>
-    <div class="form-group col-3">
-      <label for="basicInput" class="txt-formLabel">Spouse/Partner</label>
-      <input type="text" class="form-control" id="basicInput" />
-    </div>
-    <div class="form-group col-3">
-      <label for="basicInput" class="txt-formLabel">Company</label>
-      <input type="text" class="form-control" id="basicInput" placeholder="Test" />
-    </div>
-  </div>
-  <div class="mb-1 row">
-    <div class="form-group col-3">
-      <label for="basicInput" class="txt-formLabel">Job Title</label>
-      <input type="text" class="form-control" id="basicInput" placeholder="Test" />
-    </div>
-    <div class="form-group col-3">
-      <label for="basicInput" class="txt-formLabel">URL</label>
-      <input type="text" class="form-control" id="basicInput" placeholder="URL" />
-    </div>
-    <div class="form-group col-3">
-      <label for="basicInput" class="txt-formLabel">DOB</label>
-      <div class="input-group">
-        <input
-          class="form-control"
-          placeholder="yyyy-mm-dd"
-          name="Basic Date Picker"
-          [(ngModel)]="basicDPdata"
-          ngbDatepicker
-          #basicDP="ngbDatepicker"
-          style="border-right: transparent;"
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline btn-calendar feather icon-calendar"
-            (click)="basicDP.toggle()"
-            type="button"
-            rippleEffect
-          ></button>
+      </div>
+      <div class="form-group col-3">
+        <label for="dod" class="txt-formLabel">Death</label>
+        <div class="input-group">
+          <input type="text" class="form-control" formControlName="dod" placeholder="yyyy-mm-dd" name="datePicker2" 
+            ngbDatepicker #basicDP="ngbDatepicker" style="border-right: transparent;" [(ngModel)]="basicDPdata"
+            />
+          <div class="input-group-append">
+            <button class="btn btn-outline btn-calendar feather icon-calendar" (click)="basicDP.toggle()" type="button"
+              rippleEffect></button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="form-group col-3">
-      <label for="basicInput" class="txt-formLabel">Death</label>
-      <div class="input-group">
-        <input
-          class="form-control"
-          placeholder="yyyy-mm-dd"
-          name="Basic Date Picker"
-          [(ngModel)]="basicDPdata"
-          ngbDatepicker
-          #basicDP="ngbDatepicker"
-          style="border-right: transparent;"
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline btn-calendar feather icon-calendar"
-            (click)="basicDP.toggle()"
-            type="button"
-            rippleEffect
-          ></button>
-        </div>
+    <div class="divider txt-divider mt-2 mb-2">
+      <div class="divider-text">Financial Information</div>
+    </div>
+    <div class="mb-1 row">
+      <div class="form-group col-3">
+        <label for="consignment" class="txt-formLabel">Consignment</label>
+        <input type="number" class="form-control" formControlName="consignment" id="consignment" />
+      </div>
+      <div class="form-group col-3">
+        <label for="normalDi" class="txt-formLabel">Normal Discount</label>
+        <input type="number" class="form-control" id="normalDi" formControlName="normalDiscount" placeholder="4264782" />
+      </div>
+      <div class="form-group col-3">
+        <label for="maximum" class="txt-formLabel">Maximum Discount</label>
+        <input type="number" class="form-control" id="maximum" formControlName="maximumDiscount" placeholder="Test" />
       </div>
     </div>
-  </div>
-  <div class="divider txt-divider mt-2 mb-2">
-    <div class="divider-text">Financial Information</div>
-  </div>
-  <div class="mb-1 row">
-    <div class="form-group col-3">
-      <label for="basicInput" class="txt-formLabel">Consignment</label>
-      <input type="text" class="form-control" id="basicInput" />
+    <div class="divider txt-divider mt-2 mb-2">
+      <div class="divider-text">Company Information</div>
     </div>
-    <div class="form-group col-3">
-      <label for="basicInput" class="txt-formLabel">Normal Discount</label>
-      <input type="text" class="form-control" id="basicInput" placeholder="4264782"/>
+    <div class="mb-1 row">
+      <div class="form-group col-3">
+        <label for="contact" class="txt-formLabel">Imported Contact ID</label>
+        <input type="number" class="form-control" id="contact" formControlName="importId" placeholder="4264782" />
+      </div>
+      <div class="form-group col-3">
+        <label for="terms" class="txt-formLabel">Terms</label>
+        <input type="text" class="form-control" id="terms" formControlName="terms"/>
+      </div>
+      <div class="form-group col-3">
+        <label for="shipVia" class="txt-formLabel">Ship Via</label>
+        <input type="text" class="form-control" id="shipVia" formControlName="shipVia" />
+      </div> 
+      <div class="form-group col-3">
+        <label for="company" class="txt-formLabel">Company Location</label>
+        <select class="form-control" id="company" formControlName="companyLocationId">
+          <option selected>Select Location</option>
+          <option value=0>Location A</option>
+          <option value=1>Location B</option>
+          <option value=2>Location C</option>
+        </select>
+      </div>
     </div>
-    <div class="form-group col-3">
-      <label for="basicInput" class="txt-formLabel">Maximum Discount</label>
-      <input type="text" class="form-control" id="basicInput" placeholder="Test" />
+    <div class="mb-1 row">
+      <div class="form-group col-3">
+        <label for="staff" class="txt-formLabel">Staff</label>
+        <select class="form-control" id="staff" formControlName="staffId">
+          <option selected value="manager">Manager</option>
+          <option value="supervisor">Supervisor</option>
+        </select>
+      </div>
+      <div class="form-group col-3">
+        <label for="source" class="txt-formLabel">Source</label>
+        <select class="form-control" id="source"formControlName="source">
+          <option value="abc"> ABC</option>
+          <option value="hd">oedb</option>
+        </select>
+      </div>
     </div>
-  </div>
-  <div class="divider txt-divider mt-2 mb-2">
-    <div class="divider-text">Company Information</div>
-  </div>
-  <div class="mb-1 row">
-    <div class="form-group col-3">
-      <label for="basicInput" class="txt-formLabel">Imported Contact ID</label>
-      <input type="text" class="form-control" id="basicInput" placeholder="4264782"/>
+    <div class="divider txt-divider mt-2 mb-2">
+      <div class="divider-text">Custom Fields</div>
     </div>
-    <div class="form-group col-3">
-      <label for="basicInput" class="txt-formLabel">Terms</label>
-      <input type="text" class="form-control" id="basicInput" />
+    <div class="mb-1 row">
+      <div class="form-group col-3">
+        <label for="custom" class="txt-formLabel">Custom</label>
+        <input type="text" class="form-control" id="custom" formControlName="custom" placeholder="Shah" />
+      </div>
+      <div class="form-group col-3">
+        <label for="custom1" class="txt-formLabel">Custom 1</label>
+        <input type="text" class="form-control" id="customOne" formControlName="custom1" placeholder="Shah" />
+      </div>
+      <div class="form-group col-3">
+        <label for="custom2" class="txt-formLabel">Custom 2</label>
+        <input type="text" class="form-control" id="customTwo" formControlName="custom2" />
+      </div>
+      <div class="form-group col-3">
+        <label for="custom3" class="txt-formLabel">Custom 3</label>
+        <input type="text" class="form-control" id="custom3" placeholder="Test" formControlName="custom3" />
+      </div>
     </div>
-    <div class="form-group col-3">
-      <label for="basicInput" class="txt-formLabel">Ship Via</label>
-      <input type="text" class="form-control" id="basicInput" />
+    <div class="d-flex justify-content-center mt-2">
+      <button class="btn btn-save mr-1" type="submit">Save</button>
+      <button class="btn btn-outline" type="button">
+        Clear All
+      </button>
     </div>
-    <div class="form-group col-3">
-      <label for="basicSelect" class="txt-formLabel">Company Location</label>
-      <select class="form-control" id="basicSelect">
-        <option selected>Select Location</option>
-        <option>Location A</option>
-        <option>Location B</option>
-        <option>Location C</option>
-      </select>
-    </div>
-  </div>
-  <div class="mb-1 row">
-    <div class="form-group col-3">
-      <label for="basicSelect" class="txt-formLabel">Staff</label>
-      <select class="form-control" id="basicSelect">
-        <option selected>Manager</option>
-        <option>Supervisor</option>
-      </select>
-    </div>
-    <div class="form-group col-3">
-      <label for="basicSelect" class="txt-formLabel">Source</label>
-      <select class="form-control" id="basicSelect">
-        <option></option>
-      </select>
-    </div>
-  </div>
-  <div class="divider txt-divider mt-2 mb-2">
-    <div class="divider-text">Custom Fields</div>
-  </div>
-  <div class="mb-1 row">
-    <div class="form-group col-3">
-      <label for="basicInput" class="txt-formLabel">Custom</label>
-      <input type="text" class="form-control" id="basicInput" placeholder="Shah" />
-    </div>
-    <div class="form-group col-3">
-      <label for="basicInput" class="txt-formLabel">Custom 1</label>
-      <input type="text" class="form-control" id="basicInput" placeholder="Shah" />
-    </div>
-    <div class="form-group col-3">
-      <label for="basicInput" class="txt-formLabel">Custom 2</label>
-      <input type="text" class="form-control" id="basicInput" />
-    </div>
-    <div class="form-group col-3">
-      <label for="basicInput" class="txt-formLabel">Custom 3</label>
-      <input type="text" class="form-control" id="basicInput" placeholder="Test" />
-    </div>
-  </div>
-  <div class="d-flex justify-content-center mt-2">
-    <button class="btn btn-save mr-1" type="button">Save</button>
-    <button class="btn btn-outline" type="button">
-      Clear All
-    </button>
-  </div>
+  </form>
 </div>

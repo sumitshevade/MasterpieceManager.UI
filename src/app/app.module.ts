@@ -21,13 +21,15 @@ import { CardSnippetModule } from '@core/components/card-snippet/card-snippet.mo
 import { coreConfig } from 'app/app-config';
 import { AuthGuard } from 'app/auth/helpers/auth.guards';
 import { fakeBackendProvider } from 'app/auth/helpers'; // used to create fake backend
-import { JwtInterceptor, ErrorInterceptor } from 'app/auth/helpers';
+import { JwtInterceptor } from './service/http-interceptor'; 
+import { ErrorInterceptor } from 'app/auth/helpers';
 import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
 import { ContentHeaderModule } from 'app/layout/components/content-header/content-header.module';
 
 import { ContactModule } from 'app/mpm/contact/contact.module';
 import { ApiModule } from 'swagger/providers/api.module';
+import { ApiHandlerService } from './service/api-handler.service';
 
 const appRoutes: Routes = [
   {
@@ -81,9 +83,10 @@ const appRoutes: Routes = [
   ],
 
   providers: [
+    ApiHandlerService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
+    
     // ! IMPORTANT: Provider used to create fake backend, comment while using real API
     fakeBackendProvider
   ],

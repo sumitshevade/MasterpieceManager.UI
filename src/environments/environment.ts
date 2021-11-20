@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   hmr: false,
-  apiUrl: 'https://localhost:44333'
+  apiUrl: 'https://localhost:44333',
+  basrUrl : 'http://104.237.6.240/api'
 };
 
 /*

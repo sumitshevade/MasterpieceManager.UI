@@ -56,10 +56,10 @@ const routes = [
     //canActivate: [AuthGuard],
     data: { roles: [Role.Admin], 
       animation: 'danalytics' },
-    resolve: {
-      css: ContactKpiService,
-      inv: ContactListTableService
-    }
+    // resolve: {
+    //   css: ContactKpiService,
+    //   inv: ContactListTableService
+    // }
   },
   {
     path: 'contact-details/:id',

@@ -1,12 +1,12 @@
 import { environment } from './../../../../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable()
-export class ContactListTableService implements Resolve<any> {
+export class ContactListTableService {
   rows: any;
   onContactListChanged: BehaviorSubject<any>;
 
@@ -27,25 +27,22 @@ export class ContactListTableService implements Resolve<any> {
    * @param {RouterStateSnapshot} state
    * @returns {Observable<any> | Promise<any> | any}
    */
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
-    return new Promise<void>((resolve, reject) => {
-      Promise.all([this.getDataTableRows()]).then(() => {
-        resolve();
-      }, reject);
-    });
-  }
+  // resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
+  //   return new Promise<void>((resolve, reject) => {
+  //     Promise.all([this.getDataTableRows()]).then(() => {
+  //       resolve();
+  //     }, reject);
+  //   });
+  // }
 
   /**
    * Get rows
    */
-  getDataTableRows(): Promise<any[]> {
-    return new Promise((resolve, reject) => {
-      this._httpClient.get('CompanyAPI/companyContacts').subscribe((response: any) => {
-        this.rows = response.data;
-        console.log(this.rows);
-        this.onContactListChanged.next(this.rows);
-        resolve(this.rows);
-      }, reject);
-    });
-  }
+//   getDataTableRows() {
+//     const headers = new HttpHeaders()
+//     .set('Authorization',`Bearer ${localStorage.getItem('auth')}`)
+//    // console.log(`Bearer ${localStorage.getItem('auth')}`)
+//      return this._httpClient.get('http://104.237.6.240/api/Contact',{headers : headers})
+// }
+
 }

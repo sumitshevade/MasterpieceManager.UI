@@ -7,6 +7,7 @@ import { ColumnMode, DatatableComponent } from '@swimlane/ngx-datatable';
 import { CoreConfigService } from '@core/services/config.service';
 
 import { ContactListTableService } from 'app/mpm/contact/contact-list/contact-list-table/contact-list-table.service';
+import { ContactService } from 'app/service/contact.service';
 
 @Component({
   selector: 'app-contact-list-table',
@@ -37,7 +38,7 @@ export class ContactListTableComponent implements OnInit, OnDestroy {
    * @param {CoreConfigService} _coreConfigService
    * @param {ContactListTableService} _contactListTableService
    */
-  constructor(private _contactListTableService: ContactListTableService, private _coreConfigService: CoreConfigService) {
+  constructor(private _contactListTableService: ContactListTableService, private _coreConfigService: CoreConfigService , private contactService : ContactService) {
     this._unsubscribeAll = new Subject();
   }
 
@@ -46,22 +47,33 @@ export class ContactListTableComponent implements OnInit, OnDestroy {
    */
   ngOnInit(): void {
     // Subscribe config change
-    this._coreConfigService.config.pipe(takeUntil(this._unsubscribeAll)).subscribe(config => {
-      // If we have zoomIn route Transition then load datatable after 450ms(Transition will finish in 400ms)
-      if (config.layout.animation === 'zoomIn') {
-        setTimeout(() => {
-          this._contactListTableService.onContactListChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
-            this.data = response;
-            this.rows = this.data;
-          });
-        }, 450);
-      } else {
-        this._contactListTableService.onContactListChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
-          this.data = response;
-          this.rows = this.data;
-        });
-      }
-    });
+    // this._coreConfigService.config.pipe(takeUntil(this._unsubscribeAll)).subscribe(config => {
+    //   // If we have zoomIn route Transition then load datatable after 450ms(Transition will finish in 400ms)
+    //   if (config.layout.animation === 'zoomIn') {
+    //     setTimeout(() => {
+    //       this._contactListTableService.onContactListChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
+    //         this.data = response;
+    //         this.rows = this.data;
+    //       });
+    //     }, 450);
+    //   } else {
+    //     this._contactListTableService.onContactListChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
+    //       this.data = response;
+    //       this.rows = this.data;
+    //       console.log(this.rows)
+    //     });
+    //   }
+    // });
+    // this._contactListTableService.getDataTableRows().subscribe(response => {
+    //   this.rows = response
+    //   console.log(this.rows);
+
+    // })
+
+    this.contactService.getContactList().subscribe(response => {
+      this.rows = response
+      console.log(this.rows)
+    })
   }
 
   /**
