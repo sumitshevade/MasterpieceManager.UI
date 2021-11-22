@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { environment } from 'environments/environment';
-import { AuthenticationService } from 'app/auth/service';
 import { LocalStorageService } from './local-storage.service';
 
 @Injectable()
